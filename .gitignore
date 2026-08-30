@@ -1,0 +1,35 @@
+# dependencies
+node_modules/
+**/node_modules/
+
+# environment
+.env
+.env.*
+!.env.example
+
+# Python
+quant-service/.venv/
+__pycache__/
+*.py[cod]
+
+# builds
+dist/
+build/
+.next/
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# logs
+*.log
+
+# testing
+coverage/
+
+# local database/data
+postgres-data/
