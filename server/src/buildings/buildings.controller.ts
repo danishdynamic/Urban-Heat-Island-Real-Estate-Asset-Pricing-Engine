@@ -2,12 +2,12 @@ import {
   Controller,
   Get,
   Param,
+  Query,
   NotFoundException,
 } from '@nestjs/common';
-import {
-  BuildingsService,
-  GeoJsonFeatureCollection,
-} from './buildings.service';
+
+import { BuildingsService } from './buildings.service.js';
+import { BuildingQueryDto } from './dto/building-query.dto.js';
 
 @Controller('buildings')
 export class BuildingsController {
@@ -16,22 +16,28 @@ export class BuildingsController {
   ) {}
 
   @Get()
-  findAll() {
-    return this.buildingsService.findAll();
+  findAll(
+    @Query() query: BuildingQueryDto,
+  ) {
+    return this.buildingsService.findAll(query);
   }
 
-  // MUST be registered before @Get(':id') to prevent route collision
   @Get('geojson')
-  async findGeoJson(): Promise<GeoJsonFeatureCollection> {
+  findGeoJson() {
     return this.buildingsService.findGeoJson();
   }
 
   @Get(':id')
-  async findOne(@Param('id') id: string) {
-    const building = await this.buildingsService.findById(id);
+  async findOne(
+    @Param('id') id: string,
+  ) {
+    const building =
+      await this.buildingsService.findById(id);
 
     if (!building) {
-      throw new NotFoundException('Building not found');
+      throw new NotFoundException(
+        'Building not found',
+      );
     }
 
     return building;

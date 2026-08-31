@@ -1,7 +1,8 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
-import { Building } from './entities/building.entity'; 
+import { Building } from './entities/building.entity.js'; 
+import { BuildingQueryDto } from './dto/building-query.dto.js';
 
 export interface GeoJsonFeature {
   type: 'Feature';
@@ -33,10 +34,78 @@ export class BuildingsService {
   ) {}
 
   /**
-   * Retrieves all buildings.
+   * Retrieves paginated buildings based on filtering criteria.
    */
-  async findAll(): Promise<Building[]> {
-    return this.buildingRepository.find();
+  async findAll(query: BuildingQueryDto) {
+    const {
+      search,
+      minTemperature,
+      maxTemperature,
+      minCanopy,
+      maxCanopy,
+      limit = 50,
+      offset = 0,
+    } = query;
+
+    const qb = this.buildingRepository
+      .createQueryBuilder('building')
+      .orderBy('building.createdAt', 'DESC')
+      .take(Math.min(limit, 100))
+      .skip(offset);
+
+    if (search) {
+      qb.andWhere(
+        `
+        (
+          building.name ILIKE :search
+          OR building.externalId ILIKE :search
+          OR building.address ILIKE :search
+        )
+        `,
+        {
+          search: `%${search}%`,
+        },
+      );
+    }
+
+    if (minTemperature !== undefined) {
+      qb.andWhere(
+        'building.surfaceTemperature >= :minTemperature',
+        { minTemperature },
+      );
+    }
+
+    if (maxTemperature !== undefined) {
+      qb.andWhere(
+        'building.surfaceTemperature <= :maxTemperature',
+        { maxTemperature },
+      );
+    }
+
+    if (minCanopy !== undefined) {
+      qb.andWhere(
+        'building.treeCanopyPercentage >= :minCanopy',
+        { minCanopy },
+      );
+    }
+
+    if (maxCanopy !== undefined) {
+      qb.andWhere(
+        'building.treeCanopyPercentage <= :maxCanopy',
+        { maxCanopy },
+      );
+    }
+
+    const [buildings, total] = await qb.getManyAndCount();
+
+    return {
+      data: buildings,
+      meta: {
+        total,
+        limit,
+        offset,
+      },
+    };
   }
 
   /**
