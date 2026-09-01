@@ -1,4 +1,4 @@
-from .quantlib_engine import calculate_dcf
+from .quantlib_engine import calculate_dcf_quantlib
 
 
 def calculate_property_value(
@@ -7,7 +7,7 @@ def calculate_property_value(
     years: int,
 ) -> float:
 
-    return calculate_dcf(
+    return calculate_dcf_quantlib(
         annual_cash_flow=annual_cash_flow,
         discount_rate=discount_rate,
         years=years,
