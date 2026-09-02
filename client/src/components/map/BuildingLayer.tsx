@@ -18,6 +18,10 @@ import {
   useBuildingGeoJson,
 } from '../../hooks/useBuildings';
 
+import {
+  useMapStore,
+} from '../../stores/mapStore';
+
 export function BuildingLayer() {
   const {
     data,
@@ -79,6 +83,21 @@ export function BuildingLayer() {
         pickable: true,
 
         autoHighlight: true,
+
+        onClick: (info) => {
+          if (!info.object) {
+            return;
+          }
+
+          const building =
+            info.object.properties;
+
+          useMapStore
+            .getState()
+            .setSelectedBuilding(
+              building.id,
+            );
+        },
       }),
     ];
   }, [data]);

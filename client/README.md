@@ -1,32 +1,120 @@
-# React + TypeScript + Vite
+# React Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+The `client` application is the interactive analytics dashboard for the Urban Heat Valuation Engine.
 
-Currently, two official plugins are available:
+It provides the visual interface for exploring buildings, environmental conditions, financial metrics, valuation results, and climate scenarios.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Responsibilities
 
-## React Compiler
+* Render the interactive dashboard.
+* Display buildings on a 3D map.
+* Visualize environmental conditions.
+* Allow users to select individual buildings.
+* Display financial and environmental metrics.
+* Trigger valuation calculations.
+* Run climate scenarios.
+* Display valuation/risk charts.
+* Manage frontend UI state.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Technology
 
-## Expanding the Oxlint configuration
+* React
+* TypeScript
+* Vite
+* Tailwind CSS
+* Zustand
+* TanStack Query
+* Axios
+* MapLibre GL
+* Deck.gl
+* Chart.js
+* 3D Force Graph
 
-If you are developing a production application, we recommend enabling type-aware lint rules by installing `oxlint-tsgolint` and editing `.oxlintrc.json`:
+## Frontend Architecture
 
-```json
-{
-  "$schema": "./node_modules/oxlint/configuration_schema.json",
-  "plugins": ["react", "typescript", "oxc"],
-  "options": {
-    "typeAware": true
-  },
-  "rules": {
-    "react/rules-of-hooks": "error",
-    "react/only-export-components": ["warn", { "allowConstantExport": true }]
-  }
-}
+```text
+                 React Application
+                        │
+          ┌─────────────┼─────────────┐
+          ▼             ▼             ▼
+      Components      Hooks        Zustand
+          │             │             │
+          │       TanStack Query       │
+          │             │             │
+          └─────────────┼─────────────┘
+                        ▼
+                     Axios
+                        │
+                        ▼
+                    NestJS API
 ```
 
-See the [Oxlint rules documentation](https://oxc.rs/docs/guide/usage/linter/rules) for the full list of rules and categories.
+## Visualization Flow
+
+```text
+NestJS
+  │
+  ▼
+GeoJSON
+  │
+  ▼
+TanStack Query
+  │
+  ▼
+React
+  │
+  ├── MapLibre
+  │
+  ├── Deck.gl
+  │      └── 3D Buildings
+  │
+  ├── Chart.js
+  │      └── Financial / Risk Charts
+  │
+  └── 3D Force Graph
+         └── Climate → Energy → NOI → Value
+```
+
+## Project Structure
+
+```text
+client/
+└── src/
+    ├── api/
+    ├── components/
+    │   ├── dashboard/
+    │   ├── map/
+    │   ├── graph/
+    │   └── ui/
+    ├── hooks/
+    ├── stores/
+    ├── types/
+    ├── pages/
+    ├── lib/
+    ├── App.tsx
+    └── main.tsx
+```
+
+## State Management
+
+### TanStack Query
+
+Used for:
+
+* Server state
+* API requests
+* Caching
+* Loading/error states
+* Refetching
+
+### Zustand
+
+Used for:
+
+* Selected building
+* Map visualization mode
+* Temperature scenario
+* UI state
+* Future dashboard controls
+
+The frontend keeps **server state and client/UI state separate**.

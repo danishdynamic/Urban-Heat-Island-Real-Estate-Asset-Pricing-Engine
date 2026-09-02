@@ -8,6 +8,8 @@ interface MapState {
     | 'canopy'
     | 'hvac';
 
+  temperatureDelta: number;
+
   setSelectedBuilding: (
     id: string | null,
   ) => void;
@@ -18,6 +20,10 @@ interface MapState {
       | 'canopy'
       | 'hvac',
   ) => void;
+
+  setTemperatureDelta: (
+    value: number,
+  ) => void;
 }
 
 export const useMapStore =
@@ -25,6 +31,8 @@ export const useMapStore =
     selectedBuildingId: null,
 
     heatMode: 'temperature',
+
+    temperatureDelta: 0,
 
     setSelectedBuilding: (
       id,
@@ -38,5 +46,12 @@ export const useMapStore =
     ) =>
       set({
         heatMode: mode,
+      }),
+
+    setTemperatureDelta: (
+      value,
+    ) =>
+      set({
+        temperatureDelta: value,
       }),
   }));

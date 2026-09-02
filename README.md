@@ -1,174 +1,127 @@
-# Urban Heat Island Real Estate Asset Pricing Engine
+# Urban Heat Valuation Engine
 
-> Urban Heat Island & Real Estate Asset Pricing Engine Domain: Environment + Finance (PropTech) Concept: A urban analytics portal that quantifies how environmental factors (heat islands, lack of green canopy) directly impact commercial real estate valuation and utility costs across a city. 3D & Geolocation Feature: 3D Building Extrusions (CityJSON / Mapbox 3D): Render city buildings in 3D color-coded by thermal canopy readings and HVAC operational costs. 3D Dependency Graph: Toggle a 3D network view showing urban micro-climate nodes connected to asset valuation clusters using 3d-force-graph. Key Parameters: Surface temperature delta (°C), building square footage, rental yield ($/sq ft), tree canopy coverage percentage, energy efficiency rating.
+An environmental finance analytics platform that analyzes how **urban heat, tree canopy, and building energy costs can influence commercial real estate valuation**.
 
----
+The platform combines geospatial building data, environmental metrics, financial valuation models, and climate scenarios into a single interactive dashboard.
 
+## What We Are Building
 
-- Frontend: React + Vite + TypeScript + TanStack Query + Zustand + Tailwind CSS + MapLibre/Mapbox + deck.gl
-- Backend API: NestJS + TypeScript + PostgreSQL/PostGIS
-- Quant/valuation service: Python + FastAPI + QuantLib
-- Infrastructure: Docker Compose + PostgreSQL/PostGIS
-- Communication: React → NestJS → FastAPI → QuantLib
-- Spatial data: PostGIS → NestJS → GeoJSON → React/deck.gl
+The application allows users to:
 
----
+* Explore buildings on an interactive 3D city map.
+* Visualize surface temperature and environmental conditions.
+* Inspect building-level financial and environmental metrics.
+* Estimate property value using DCF based valuation.
+* Model additional HVAC costs caused by increased temperatures.
+* Run climate/temperature scenarios.
+* Analyze the potential impact of environmental changes on NOI and property value.
+* Explore relationships between climate factors, energy costs, NOI, and valuation through a dependency graph.
 
-``` Plaintext
-urban-heat-val/
-│
-├── docker-compose.yml
-├── .gitignore
-├── README.md
-│
-├── server/                         # NestJS API
-│   ├── src/
-│   │   ├── common/
-│   │   │   ├── guards/
-│   │   │   ├── interceptors/
-│   │   │   ├── filters/
-│   │   │   └── pipes/
-│   │   │
-│   │   ├── config/
-│   │   │   └── configuration.ts
-│   │   │
-│   │   ├── database/
-│   │   │   ├── database.module.ts
-│   │   │   └── migrations/
-│   │   │
-│   │   ├── buildings/
-│   │   │   ├── buildings.module.ts
-│   │   │   ├── buildings.controller.ts
-│   │   │   ├── buildings.service.ts
-│   │   │   ├── buildings.repository.ts
-│   │   │   ├── dto/
-│   │   │   └── entities/
-│   │   │
-│   │   ├── valuations/
-│   │   │   ├── valuations.module.ts
-│   │   │   ├── valuations.controller.ts
-│   │   │   ├── valuations.service.ts
-│   │   │   └── dto/
-│   │   │
-│   │   ├── environment/
-│   │   │   ├── environment.module.ts
-│   │   │   ├── environment.controller.ts
-│   │   │   └── environment.service.ts
-│   │   │
-│   │   ├── health/
-│   │   │   ├── health.module.ts
-│   │   │   └── health.controller.ts
-│   │   │
-│   │   ├── app.module.ts
-│   │   └── main.ts
-│   │
-│   ├── test/
-│   ├── .env
-│   ├── .env.example
-│   ├── package.json
-│   └── tsconfig.json
-│
-├── quant-service/                  # Python FastAPI + QuantLib
-│   ├── app/
-│   │   ├── api/
-│   │   │   ├── routes/
-│   │   │   │   ├── health.py
-│   │   │   │   ├── valuation.py
-│   │   │   │   └── scenarios.py
-│   │   │   └── router.py
-│   │   │
-│   │   ├── core/
-│   │   │   ├── config.py
-│   │   │   └── logging.py
-│   │   │
-│   │   ├── models/
-│   │   │   ├── valuation.py
-│   │   │   └── scenario.py
-│   │   │
-│   │   ├── services/
-│   │   │   ├── quantlib_engine.py
-│   │   │   ├── dcf.py
-│   │   │   ├── cap_rate.py
-│   │   │   └── energy_cost.py
-│   │   │
-│   │   ├── main.py
-│   │   └── __init__.py
-│   │
-│   ├── tests/
-│   ├── .env
-│   ├── .env.example
-│   ├── requirements.txt
-│   └── README.md
-│
-├── client/                         # React + Vite
-│   ├── src/
-│   │   ├── components/
-│   │   │   ├── map/
-│   │   │   │   ├── MapContainer.tsx
-│   │   │   │   ├── Building3DLayer.tsx
-│   │   │   │   └── MapControls.tsx
-│   │   │   │
-│   │   │   ├── charts/
-│   │   │   │   ├── ValuationChart.tsx
-│   │   │   │   ├── EnergyCostChart.tsx
-│   │   │   │   └── HeatImpactChart.tsx
-│   │   │   │
-│   │   │   ├── graph/
-│   │   │   │   └── DependencyGraph.tsx
-│   │   │   │
-│   │   │   ├── ui/
-│   │   │   │   ├── AnalyticsPanel.tsx
-│   │   │   │   ├── BuildingDetailModal.tsx
-│   │   │   │   ├── HeatSliderControls.tsx
-│   │   │   │   └── MetricCard.tsx
-│   │   │   │
-│   │   │   └── layout/
-│   │   │       ├── Header.tsx
-│   │   │       ├── Sidebar.tsx
-│   │   │       └── DashboardLayout.tsx
-│   │   │
-│   │   ├── hooks/
-│   │   │   ├── useBuildings.ts
-│   │   │   ├── useBuilding.ts
-│   │   │   ├── useValuation.ts
-│   │   │   └── useHeatScenario.ts
-│   │   │
-│   │   ├── services/
-│   │   │   └── api.ts
-│   │   │
-│   │   ├── stores/
-│   │   │   ├── mapStore.ts
-│   │   │   ├── scenarioStore.ts
-│   │   │   └── uiStore.ts
-│   │   │
-│   │   ├── types/
-│   │   │   ├── building.ts
-│   │   │   ├── valuation.ts
-│   │   │   ├── environment.ts
-│   │   │   └── geojson.ts
-│   │   │
-│   │   ├── utils/
-│   │   │   ├── colorScales.ts
-│   │   │   ├── formatters.ts
-│   │   │   └── calculations.ts
-│   │   │
-│   │   ├── App.tsx
-│   │   ├── main.tsx
-│   │   └── index.css
-│   │
-│   ├── public/
-│   │   └── data/
-│   │       └── sample_buildings.geojson
-│   │
-│   ├── .env
-│   ├── .env.example
-│   ├── index.html
-│   ├── vite.config.ts
-│   ├── package.json
-│   └── tsconfig.json
-│
-└── data/
-    ├── geojson/
-    ├── raster/
-    └── seed/
+## Technology Stack
+
+### Frontend
+
+* React
+* TypeScript
+* Vite
+* Tailwind CSS
+* Zustand
+* TanStack Query
+* Axios
+* MapLibre GL
+* Deck.gl
+* Chart.js
+* 3D Force Graph
+
+### Backend
+
+* NestJS
+* TypeScript
+* Node.js
+* PostgreSQL
+* PostGIS
+
+### Quantitative Service
+
+* Python
+* FastAPI
+* Pydantic
+* QuantLib
+
+### Infrastructure
+
+* Docker
+* Docker Compose
+* Git / GitHub
+
+## High-Level Architecture
+
+```text
+                    ┌──────────────────────┐
+                    │       React          │
+                    │ TypeScript + Vite    │
+                    │ Tailwind + Zustand   │
+                    │ TanStack Query       │
+                    └──────────┬───────────┘
+                               │
+                               ▼
+                    ┌──────────────────────┐
+                    │       NestJS         │
+                    │   REST API Layer     │
+                    └──────────┬───────────┘
+                               │
+                 ┌─────────────┴─────────────┐
+                 ▼                           ▼
+        ┌─────────────────┐        ┌─────────────────┐
+        │ PostgreSQL      │        │    FastAPI      │
+        │ + PostGIS       │        │ Quant Service   │
+        │                 │        │ + QuantLib      │
+        └─────────────────┘        └────────┬────────┘
+                                            │
+                                            ▼
+                                  ┌──────────────────┐
+                                  │ Valuation + Risk │
+                                  │ Scenario Engine  │
+                                  └──────────────────┘
 ```
+
+## Core Data Flow
+
+```text
+Urban Environment
+       │
+       ├── Surface Temperature
+       ├── Tree Canopy
+       └── Energy Conditions
+              │
+              ▼
+          HVAC Costs
+              │
+              ▼
+             NOI
+              │
+              ▼
+          QuantLib DCF
+              │
+              ▼
+       Property Valuation
+              │
+              ▼
+      Climate Risk Scenarios
+```
+
+## Project Structure
+
+```text
+urban-heat-val/
+├── client/          # React frontend
+├── server/          # NestJS API
+├── quant-service/   # FastAPI + QuantLib
+├── data/            # Seed data, fixtures and spatial datasets
+├── docker-compose.yml
+└── README.md
+```
+
+## Development Goal
+
+The initial version focuses on building a working full stack MVP with simulated/sample environmental and real estate data. The architecture is designed so that real GIS, satellite, weather, energy, and property datasets can be introduced later.
