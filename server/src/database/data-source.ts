@@ -2,7 +2,7 @@ import 'dotenv/config';
 
 import { DataSource } from 'typeorm';
 
-import { Building } from '../buildings/entities/building.entity';
+import { Building } from '../buildings/entities/building.entity.js';
 
 export default new DataSource({
   type: 'postgres',

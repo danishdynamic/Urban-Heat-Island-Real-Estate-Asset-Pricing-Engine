@@ -1,22 +1,20 @@
-import {
-  useQuery,
-} from '@tanstack/react-query';
+import { useQuery } from '@tanstack/react-query';
 
 import {
-  getBuildings,
-  getBuildingGeoJson,
+  fetchBuildings,
+  fetchBuildingsGeoJSON,
 } from '../api/buildings';
 
 export function useBuildings() {
   return useQuery({
     queryKey: ['buildings'],
-    queryFn: getBuildings,
+    queryFn: () => fetchBuildings(),
   });
 }
 
 export function useBuildingGeoJson() {
   return useQuery({
     queryKey: ['buildings', 'geojson'],
-    queryFn: getBuildingGeoJson,
+    queryFn: fetchBuildingsGeoJSON,
   });
 }

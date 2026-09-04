@@ -1,0 +1,57 @@
+[
+  {
+    "scenarioId": "SCEN-001",
+    "name": "Moderate Alpine Summer Wave (+2.0°C)",
+    "description": "Simulates a typical August warm spell causing minor surface heating across Central Munich.",
+    "targetBuildingId": "825dc113-67f3-438f-b5a8-90d4c84290b8",
+    "parameters": {
+      "tempIncreaseC": 2.0,
+      "hvacCostSurgePct": 12.5,
+      "yieldImpactBps": -15
+    }
+  },
+  {
+    "scenarioId": "SCEN-002",
+    "name": "Severe Bavarian Urban Heat Island (+4.5°C)",
+    "description": "Simulates high atmospheric heat retention in dense areas with tree canopy under 15%.",
+    "targetBuildingId": "6d55555a-616f-40b5-8288-69da81772e78",
+    "parameters": {
+      "tempIncreaseC": 4.5,
+      "hvacCostSurgePct": 28.0,
+      "yieldImpactBps": -45
+    }
+  },
+  {
+    "scenarioId": "SCEN-003",
+    "name": "Extreme European Heatwave (+6.0°C)",
+    "description": "Stress-test scenario reflecting peak heat conditions with severe HVAC overutilization.",
+    "targetBuildingId": "0dc1aebd-6c08-4e2b-be63-3ba127a898bf",
+    "parameters": {
+      "tempIncreaseC": 6.0,
+      "hvacCostSurgePct": 45.0,
+      "yieldImpactBps": -80
+    }
+  },
+  {
+    "scenarioId": "SCEN-004",
+    "name": "Urban Canopy Cooling Mitigation (-1.5°C)",
+    "description": "Simulates green roof retrofits and tree planting interventions near high-risk assets.",
+    "targetBuildingId": "c0ae5181-6932-4f4d-90fa-5d6995e1fe8f",
+    "parameters": {
+      "tempIncreaseC": -1.5,
+      "hvacCostSurgePct": -10.0,
+      "yieldImpactBps": 12
+    }
+  },
+  {
+    "scenarioId": "SCEN-005",
+    "name": "Grid Stress & Cooling Surge (+3.5°C)",
+    "description": "Models mid-range heat wave combined with elevated municipal energy tariff spikes.",
+    "targetBuildingId": "2edc6488-a8a5-4b24-ad2a-a784962a9a1b",
+    "parameters": {
+      "tempIncreaseC": 3.5,
+      "hvacCostSurgePct": 35.0,
+      "yieldImpactBps": -35
+    }
+  }
+]

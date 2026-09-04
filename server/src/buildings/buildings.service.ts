@@ -118,19 +118,19 @@ export class BuildingsService {
   /**
    * Retrieves all buildings transformed directly into a valid GeoJSON FeatureCollection.
    */
-  async findGeoJson(): Promise<GeoJsonFeatureCollection> {
+    async findGeoJson(): Promise<GeoJsonFeatureCollection> {
     const result = await this.buildingRepository.query(`
       SELECT
         id,
         external_id,
         name,
         address,
+        height_m,
         square_footage,
         rental_yield,
         tree_canopy_percentage,
         surface_temperature,
         energy_efficiency_rating,
-        annual_hvac_cost,
         ST_AsGeoJSON(geometry)::json AS geometry
       FROM buildings
     `);
@@ -145,14 +145,14 @@ export class BuildingsService {
           externalId: building.external_id,
           name: building.name,
           address: building.address,
+          heightM: Number(building.height_m),
           squareFootage: Number(building.square_footage),
           rentalYield: Number(building.rental_yield),
           treeCanopyPercentage: Number(building.tree_canopy_percentage),
           surfaceTemperature: Number(building.surface_temperature),
           energyEfficiencyRating: building.energy_efficiency_rating,
-          annualHvacCost: Number(building.annual_hvac_cost),
         },
       })),
     };
-  }
-}
+  };
+};

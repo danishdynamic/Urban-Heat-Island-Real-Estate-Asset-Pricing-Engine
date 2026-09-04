@@ -1,0 +1,2562 @@
+{
+  "type": "FeatureCollection",
+  "name": "urban_heat_buildings_munich",
+  "crs": {
+    "type": "name",
+    "properties": {
+      "name": "urn:ogc:def:crs:OGC:1.3:CRS84"
+    }
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "825dc113-67f3-438f-b5a8-90d4c84290b8",
+        "externalId": "BLDG-001",
+        "name": "Isar Center",
+        "address": "Maximilianstraße 4, District 2",
+        "city": "Munich",
+        "buildingType": "Retail Complex",
+        "yearBuilt": 2001,
+        "floors": 21,
+        "heightM": 74.03,
+        "squareFootage": 188720.17,
+        "annualRent": 7369520.47,
+        "operatingExpenses": 1798605.26,
+        "vacancyRate": 0.0973,
+        "rentalYield": 0.0549,
+        "energyEfficiencyRating": "D",
+        "treeCanopyPercentage": 20.64,
+        "surfaceTemperature": 29.2,
+        "latitude": 48.154692,
+        "longitude": 11.59577
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              11.59559,
+              48.154512
+            ],
+            [
+              11.59595,
+              48.154512
+            ],
+            [
+              11.59595,
+              48.154872
+            ],
+            [
+              11.59559,
+              48.154872
+            ],
+            [
+              11.59559,
+              48.154512
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "6d55555a-616f-40b5-8288-69da81772e78",
+        "externalId": "BLDG-002",
+        "name": "Maxvorstadt Forum",
+        "address": "Maximilianstraße 8, District 3",
+        "city": "Munich",
+        "buildingType": "Mixed-Use Commercial",
+        "yearBuilt": 2015,
+        "floors": 15,
+        "heightM": 53.56,
+        "squareFootage": 96132.64,
+        "annualRent": 3611255.26,
+        "operatingExpenses": 825335.11,
+        "vacancyRate": 0.0951,
+        "rentalYield": 0.041,
+        "energyEfficiencyRating": "A",
+        "treeCanopyPercentage": 14.08,
+        "surfaceTemperature": 30.5,
+        "latitude": 48.145919,
+        "longitude": 11.566087
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              11.565907,
+              48.145739
+            ],
+            [
+              11.566267,
+              48.145739
+            ],
+            [
+              11.566267,
+              48.146099
+            ],
+            [
+              11.565907,
+              48.146099
+            ],
+            [
+              11.565907,
+              48.145739
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "0dc1aebd-6c08-4e2b-be63-3ba127a898bf",
+        "externalId": "BLDG-003",
+        "name": "Schwabing Office Park",
+        "address": "Maximilianstraße 12, District 4",
+        "city": "Munich",
+        "buildingType": "IT Park",
+        "yearBuilt": 2002,
+        "floors": 28,
+        "heightM": 98.55,
+        "squareFootage": 310786.92,
+        "annualRent": 11784703.12,
+        "operatingExpenses": 2775276.68,
+        "vacancyRate": 0.1444,
+        "rentalYield": 0.045,
+        "energyEfficiencyRating": "E",
+        "treeCanopyPercentage": 29.31,
+        "surfaceTemperature": 28.5,
+        "latitude": 48.127536,
+        "longitude": 11.562954
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              11.562774,
+              48.127356
+            ],
+            [
+              11.563134,
+              48.127356
+            ],
+            [
+              11.563134,
+              48.127716
+            ],
+            [
+              11.562774,
+              48.127716
+            ],
+            [
+              11.562774,
+              48.127356
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "c0ae5181-6932-4f4d-90fa-5d6995e1fe8f",
+        "externalId": "BLDG-004",
+        "name": "Marienplatz Plaza",
+        "address": "Maximilianstraße 16, District 5",
+        "city": "Munich",
+        "buildingType": "IT Park",
+        "yearBuilt": 2007,
+        "floors": 8,
+        "heightM": 28.97,
+        "squareFootage": 49596.59,
+        "annualRent": 1407586.29,
+        "operatingExpenses": 425949.07,
+        "vacancyRate": 0.1002,
+        "rentalYield": 0.0522,
+        "energyEfficiencyRating": "A",
+        "treeCanopyPercentage": 35.08,
+        "surfaceTemperature": 27.1,
+        "latitude": 48.14587,
+        "longitude": 11.567826
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              11.567646,
+              48.14569
+            ],
+            [
+              11.568006,
+              48.14569
+            ],
+            [
+              11.568006,
+              48.14605
+            ],
+            [
+              11.567646,
+              48.14605
+            ],
+            [
+              11.567646,
+              48.14569
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "2edc6488-a8a5-4b24-ad2a-a784962a9a1b",
+        "externalId": "BLDG-005",
+        "name": "Bogenhausen Heights",
+        "address": "Maximilianstraße 20, District 1",
+        "city": "Munich",
+        "buildingType": "Commercial Office",
+        "yearBuilt": 2003,
+        "floors": 7,
+        "heightM": 25.92,
+        "squareFootage": 52516.02,
+        "annualRent": 1887689.55,
+        "operatingExpenses": 464148.47,
+        "vacancyRate": 0.0983,
+        "rentalYield": 0.037,
+        "energyEfficiencyRating": "D",
+        "treeCanopyPercentage": 39.94,
+        "surfaceTemperature": 28.0,
+        "latitude": 48.139668,
+        "longitude": 11.592182
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              11.592002,
+              48.139488
+            ],
+            [
+              11.592362,
+              48.139488
+            ],
+            [
+              11.592362,
+              48.139848
+            ],
+            [
+              11.592002,
+              48.139848
+            ],
+            [
+              11.592002,
+              48.139488
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "d100a344-7394-4a21-91bb-a8aa08054922",
+        "externalId": "BLDG-006",
+        "name": "Sendling Tech Hub",
+        "address": "Maximilianstraße 24, District 2",
+        "city": "Munich",
+        "buildingType": "IT Park",
+        "yearBuilt": 2000,
+        "floors": 7,
+        "heightM": 23.83,
+        "squareFootage": 55624.22,
+        "annualRent": 1833630.42,
+        "operatingExpenses": 479542.74,
+        "vacancyRate": 0.1042,
+        "rentalYield": 0.0424,
+        "energyEfficiencyRating": "E",
+        "treeCanopyPercentage": 20.87,
+        "surfaceTemperature": 29.5,
+        "latitude": 48.156909,
+        "longitude": 11.582381
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              11.582201,
+              48.156729
+            ],
+            [
+              11.582561,
+              48.156729
+            ],
+            [
+              11.582561,
+              48.157089
+            ],
+            [
+              11.582201,
+              48.157089
+            ],
+            [
+              11.582201,
+              48.156729
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "6da23c60-182a-49d0-af83-77913bf9aac2",
+        "externalId": "BLDG-007",
+        "name": "Pasing Central",
+        "address": "Maximilianstraße 28, District 3",
+        "city": "Munich",
+        "buildingType": "Mixed-Use Commercial",
+        "yearBuilt": 2020,
+        "floors": 13,
+        "heightM": 44.67,
+        "squareFootage": 100907.78,
+        "annualRent": 3668458.2,
+        "operatingExpenses": 837794.9,
+        "vacancyRate": 0.0627,
+        "rentalYield": 0.0432,
+        "energyEfficiencyRating": "C",
+        "treeCanopyPercentage": 22.4,
+        "surfaceTemperature": 29.1,
+        "latitude": 48.152691,
+        "longitude": 11.58815
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              11.58797,
+              48.152511
+            ],
+            [
+              11.58833,
+              48.152511
+            ],
+            [
+              11.58833,
+              48.152871
+            ],
+            [
+              11.58797,
+              48.152871
+            ],
+            [
+              11.58797,
+              48.152511
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "1af8ac14-d3b5-4381-8cc6-d02dd3fc93d2",
+        "externalId": "BLDG-008",
+        "name": "Giesing Commercial",
+        "address": "Maximilianstraße 32, District 4",
+        "city": "Munich",
+        "buildingType": "IT Park",
+        "yearBuilt": 2016,
+        "floors": 12,
+        "heightM": 41.41,
+        "squareFootage": 105166.27,
+        "annualRent": 2857088.49,
+        "operatingExpenses": 987144.66,
+        "vacancyRate": 0.0372,
+        "rentalYield": 0.0627,
+        "energyEfficiencyRating": "E",
+        "treeCanopyPercentage": 30.37,
+        "surfaceTemperature": 28.8,
+        "latitude": 48.139791,
+        "longitude": 11.589755
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              11.589575,
+              48.139611
+            ],
+            [
+              11.589935,
+              48.139611
+            ],
+            [
+              11.589935,
+              48.139971
+            ],
+            [
+              11.589575,
+              48.139971
+            ],
+            [
+              11.589575,
+              48.139611
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "8126e1b4-d886-48d1-8e50-74976e3e2888",
+        "externalId": "BLDG-009",
+        "name": "Englischer Garten Office",
+        "address": "Maximilianstraße 36, District 5",
+        "city": "Munich",
+        "buildingType": "Commercial Office",
+        "yearBuilt": 2020,
+        "floors": 4,
+        "heightM": 13.65,
+        "squareFootage": 38634.11,
+        "annualRent": 1374870.61,
+        "operatingExpenses": 434487.62,
+        "vacancyRate": 0.0218,
+        "rentalYield": 0.0519,
+        "energyEfficiencyRating": "A",
+        "treeCanopyPercentage": 23.47,
+        "surfaceTemperature": 28.8,
+        "latitude": 48.138524,
+        "longitude": 11.580884
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              11.580704,
+              48.138344
+            ],
+            [
+              11.581064,
+              48.138344
+            ],
+            [
+              11.581064,
+              48.138704
+            ],
+            [
+              11.580704,
+              48.138704
+            ],
+            [
+              11.580704,
+              48.138344
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "35d05e53-99df-4220-95ba-336a121c45fa",
+        "externalId": "BLDG-010",
+        "name": "Karlsplatz Corporate",
+        "address": "Maximilianstraße 40, District 1",
+        "city": "Munich",
+        "buildingType": "Commercial Office",
+        "yearBuilt": 2020,
+        "floors": 13,
+        "heightM": 47.09,
+        "squareFootage": 90435.35,
+        "annualRent": 3280937.33,
+        "operatingExpenses": 1016320.86,
+        "vacancyRate": 0.0765,
+        "rentalYield": 0.0589,
+        "energyEfficiencyRating": "A",
+        "treeCanopyPercentage": 35.25,
+        "surfaceTemperature": 27.6,
+        "latitude": 48.133246,
+        "longitude": 11.589963
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              11.589783,
+              48.133066
+            ],
+            [
+              11.590143,
+              48.133066
+            ],
+            [
+              11.590143,
+              48.133426
+            ],
+            [
+              11.589783,
+              48.133426
+            ],
+            [
+              11.589783,
+              48.133066
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "74128c44-4179-4563-89a3-3ef177c05811",
+        "externalId": "BLDG-011",
+        "name": "Arabellapark Tower",
+        "address": "Maximilianstraße 44, District 2",
+        "city": "Munich",
+        "buildingType": "Retail Complex",
+        "yearBuilt": 2014,
+        "floors": 21,
+        "heightM": 73.49,
+        "squareFootage": 152688.68,
+        "annualRent": 5104919.22,
+        "operatingExpenses": 1760937.62,
+        "vacancyRate": 0.0819,
+        "rentalYield": 0.0635,
+        "energyEfficiencyRating": "E",
+        "treeCanopyPercentage": 22.31,
+        "surfaceTemperature": 29.2,
+        "latitude": 48.148897,
+        "longitude": 11.558705
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              11.558525,
+              48.148717
+            ],
+            [
+              11.558885,
+              48.148717
+            ],
+            [
+              11.558885,
+              48.149077
+            ],
+            [
+              11.558525,
+              48.149077
+            ],
+            [
+              11.558525,
+              48.148717
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "cbaf85d8-d482-4a71-91e5-718756277621",
+        "externalId": "BLDG-012",
+        "name": "Haidhausen Hub",
+        "address": "Maximilianstraße 48, District 3",
+        "city": "Munich",
+        "buildingType": "IT Park",
+        "yearBuilt": 2000,
+        "floors": 16,
+        "heightM": 56.04,
+        "squareFootage": 187069.96,
+        "annualRent": 7937799.69,
+        "operatingExpenses": 1706420.95,
+        "vacancyRate": 0.1394,
+        "rentalYield": 0.0503,
+        "energyEfficiencyRating": "B",
+        "treeCanopyPercentage": 21.45,
+        "surfaceTemperature": 28.5,
+        "latitude": 48.140717,
+        "longitude": 11.580713
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              11.580533,
+              48.140537
+            ],
+            [
+              11.580893,
+              48.140537
+            ],
+            [
+              11.580893,
+              48.140897
+            ],
+            [
+              11.580533,
+              48.140897
+            ],
+            [
+              11.580533,
+              48.140537
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "f58ad789-fcf5-4566-ac0c-5fd6768a517f",
+        "externalId": "BLDG-013",
+        "name": "Olympia Business Center",
+        "address": "Maximilianstraße 52, District 4",
+        "city": "Munich",
+        "buildingType": "Retail Complex",
+        "yearBuilt": 2019,
+        "floors": 5,
+        "heightM": 17.62,
+        "squareFootage": 39089.06,
+        "annualRent": 1214702.88,
+        "operatingExpenses": 297203.39,
+        "vacancyRate": 0.0738,
+        "rentalYield": 0.0493,
+        "energyEfficiencyRating": "D",
+        "treeCanopyPercentage": 24.85,
+        "surfaceTemperature": 28.9,
+        "latitude": 48.13647,
+        "longitude": 11.591046
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              11.590866,
+              48.13629
+            ],
+            [
+              11.591226,
+              48.13629
+            ],
+            [
+              11.591226,
+              48.13665
+            ],
+            [
+              11.590866,
+              48.13665
+            ],
+            [
+              11.590866,
+              48.13629
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "3fcb22f7-4240-4f14-ad6f-742947ca1e46",
+        "externalId": "BLDG-014",
+        "name": "Laimer Würfel",
+        "address": "Maximilianstraße 56, District 5",
+        "city": "Munich",
+        "buildingType": "Retail Complex",
+        "yearBuilt": 2006,
+        "floors": 9,
+        "heightM": 33.12,
+        "squareFootage": 48165.87,
+        "annualRent": 1924840.14,
+        "operatingExpenses": 461049.62,
+        "vacancyRate": 0.0931,
+        "rentalYield": 0.0387,
+        "energyEfficiencyRating": "E",
+        "treeCanopyPercentage": 10.15,
+        "surfaceTemperature": 30.9,
+        "latitude": 48.130026,
+        "longitude": 11.563454
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              11.563274,
+              48.129846
+            ],
+            [
+              11.563634,
+              48.129846
+            ],
+            [
+              11.563634,
+              48.130206
+            ],
+            [
+              11.563274,
+              48.130206
+            ],
+            [
+              11.563274,
+              48.129846
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "0f3efbea-a1a5-4b95-a4c4-954592835715",
+        "externalId": "BLDG-015",
+        "name": "Nymphenburg Plaza",
+        "address": "Maximilianstraße 60, District 1",
+        "city": "Munich",
+        "buildingType": "Commercial Office",
+        "yearBuilt": 2019,
+        "floors": 28,
+        "heightM": 98.94,
+        "squareFootage": 170397.52,
+        "annualRent": 4328855.23,
+        "operatingExpenses": 1064480.39,
+        "vacancyRate": 0.132,
+        "rentalYield": 0.0475,
+        "energyEfficiencyRating": "A",
+        "treeCanopyPercentage": 39.61,
+        "surfaceTemperature": 26.6,
+        "latitude": 48.130423,
+        "longitude": 11.56754
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              11.56736,
+              48.130243
+            ],
+            [
+              11.56772,
+              48.130243
+            ],
+            [
+              11.56772,
+              48.130603
+            ],
+            [
+              11.56736,
+              48.130603
+            ],
+            [
+              11.56736,
+              48.130243
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "5003f983-f184-40a8-bc33-a4023e549eef",
+        "externalId": "BLDG-016",
+        "name": "Bavariapark Office",
+        "address": "Maximilianstraße 64, District 2",
+        "city": "Munich",
+        "buildingType": "Retail Complex",
+        "yearBuilt": 2021,
+        "floors": 12,
+        "heightM": 41.89,
+        "squareFootage": 112132.46,
+        "annualRent": 3362311.17,
+        "operatingExpenses": 839480.84,
+        "vacancyRate": 0.0529,
+        "rentalYield": 0.0557,
+        "energyEfficiencyRating": "A",
+        "treeCanopyPercentage": 18.57,
+        "surfaceTemperature": 30.7,
+        "latitude": 48.122817,
+        "longitude": 11.583342
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              11.583162,
+              48.122637
+            ],
+            [
+              11.583522,
+              48.122637
+            ],
+            [
+              11.583522,
+              48.122997
+            ],
+            [
+              11.583162,
+              48.122997
+            ],
+            [
+              11.583162,
+              48.122637
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "81ceacad-1066-4c90-9cbb-42751a130bdf",
+        "externalId": "BLDG-017",
+        "name": "Donnersberger Center",
+        "address": "Maximilianstraße 68, District 3",
+        "city": "Munich",
+        "buildingType": "Mixed-Use Commercial",
+        "yearBuilt": 2001,
+        "floors": 15,
+        "heightM": 52.88,
+        "squareFootage": 114747.35,
+        "annualRent": 4689634.24,
+        "operatingExpenses": 957035.38,
+        "vacancyRate": 0.1431,
+        "rentalYield": 0.043,
+        "energyEfficiencyRating": "B",
+        "treeCanopyPercentage": 41.71,
+        "surfaceTemperature": 26.2,
+        "latitude": 48.150031,
+        "longitude": 11.567332
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              11.567152,
+              48.149851
+            ],
+            [
+              11.567512,
+              48.149851
+            ],
+            [
+              11.567512,
+              48.150211
+            ],
+            [
+              11.567152,
+              48.150211
+            ],
+            [
+              11.567152,
+              48.149851
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "b4ad3c7f-c360-46a5-ba51-f55e22a25b46",
+        "externalId": "BLDG-018",
+        "name": "Werksviertel IT Park",
+        "address": "Maximilianstraße 72, District 4",
+        "city": "Munich",
+        "buildingType": "Commercial Office",
+        "yearBuilt": 1998,
+        "floors": 20,
+        "heightM": 71.97,
+        "squareFootage": 107891.21,
+        "annualRent": 3864457.85,
+        "operatingExpenses": 1133004.57,
+        "vacancyRate": 0.0335,
+        "rentalYield": 0.0371,
+        "energyEfficiencyRating": "C",
+        "treeCanopyPercentage": 35.87,
+        "surfaceTemperature": 28.2,
+        "latitude": 48.154516,
+        "longitude": 11.594965
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              11.594785,
+              48.154336
+            ],
+            [
+              11.595145,
+              48.154336
+            ],
+            [
+              11.595145,
+              48.154696
+            ],
+            [
+              11.594785,
+              48.154696
+            ],
+            [
+              11.594785,
+              48.154336
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "63c8c794-a8ef-4eb2-a2c7-032bdba514d6",
+        "externalId": "BLDG-019",
+        "name": "Arnulfpark Chambers",
+        "address": "Maximilianstraße 76, District 5",
+        "city": "Munich",
+        "buildingType": "Mixed-Use Commercial",
+        "yearBuilt": 2005,
+        "floors": 28,
+        "heightM": 98.89,
+        "squareFootage": 253705.18,
+        "annualRent": 10401441.2,
+        "operatingExpenses": 3479277.7,
+        "vacancyRate": 0.1191,
+        "rentalYield": 0.0625,
+        "energyEfficiencyRating": "B",
+        "treeCanopyPercentage": 11.1,
+        "surfaceTemperature": 30.8,
+        "latitude": 48.14717,
+        "longitude": 11.564285
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              11.564105,
+              48.14699
+            ],
+            [
+              11.564465,
+              48.14699
+            ],
+            [
+              11.564465,
+              48.14735
+            ],
+            [
+              11.564105,
+              48.14735
+            ],
+            [
+              11.564105,
+              48.14699
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "d659b8e1-3f19-4904-a0c2-12d6e5bccabf",
+        "externalId": "BLDG-020",
+        "name": "Moosach Heights",
+        "address": "Maximilianstraße 80, District 1",
+        "city": "Munich",
+        "buildingType": "Mixed-Use Commercial",
+        "yearBuilt": 2020,
+        "floors": 27,
+        "heightM": 95.38,
+        "squareFootage": 232785.05,
+        "annualRent": 10302145.89,
+        "operatingExpenses": 3477907.55,
+        "vacancyRate": 0.0779,
+        "rentalYield": 0.0368,
+        "energyEfficiencyRating": "B",
+        "treeCanopyPercentage": 38.81,
+        "surfaceTemperature": 26.8,
+        "latitude": 48.133085,
+        "longitude": 11.565641
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              11.565461,
+              48.132905
+            ],
+            [
+              11.565821,
+              48.132905
+            ],
+            [
+              11.565821,
+              48.133265
+            ],
+            [
+              11.565461,
+              48.133265
+            ],
+            [
+              11.565461,
+              48.132905
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "34ff7774-3e26-4c71-af5d-285fd2fd88de",
+        "externalId": "BLDG-021",
+        "name": "Theresienhöhe Tower",
+        "address": "Maximilianstraße 84, District 2",
+        "city": "Munich",
+        "buildingType": "Commercial Office",
+        "yearBuilt": 2007,
+        "floors": 9,
+        "heightM": 30.98,
+        "squareFootage": 86818.44,
+        "annualRent": 2207546.25,
+        "operatingExpenses": 620906.17,
+        "vacancyRate": 0.1432,
+        "rentalYield": 0.0568,
+        "energyEfficiencyRating": "E",
+        "treeCanopyPercentage": 36.74,
+        "surfaceTemperature": 27.1,
+        "latitude": 48.145716,
+        "longitude": 11.590815
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              11.590635,
+              48.145536
+            ],
+            [
+              11.590995,
+              48.145536
+            ],
+            [
+              11.590995,
+              48.145896
+            ],
+            [
+              11.590635,
+              48.145896
+            ],
+            [
+              11.590635,
+              48.145536
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "9353c7dc-b329-435c-bd92-d3c4e49e6d9e",
+        "externalId": "BLDG-022",
+        "name": "Riem Corporate Center",
+        "address": "Maximilianstraße 88, District 3",
+        "city": "Munich",
+        "buildingType": "IT Park",
+        "yearBuilt": 2020,
+        "floors": 10,
+        "heightM": 36.16,
+        "squareFootage": 83887.92,
+        "annualRent": 2189737.09,
+        "operatingExpenses": 527962.35,
+        "vacancyRate": 0.0958,
+        "rentalYield": 0.0619,
+        "energyEfficiencyRating": "D",
+        "treeCanopyPercentage": 5.09,
+        "surfaceTemperature": 31.4,
+        "latitude": 48.154744,
+        "longitude": 11.568473
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              11.568293,
+              48.154564
+            ],
+            [
+              11.568653,
+              48.154564
+            ],
+            [
+              11.568653,
+              48.154924
+            ],
+            [
+              11.568293,
+              48.154924
+            ],
+            [
+              11.568293,
+              48.154564
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "1cee1f36-534a-4cc4-a837-fffbca432280",
+        "externalId": "BLDG-023",
+        "name": "Lehel Executive Hub",
+        "address": "Maximilianstraße 92, District 4",
+        "city": "Munich",
+        "buildingType": "IT Park",
+        "yearBuilt": 2011,
+        "floors": 4,
+        "heightM": 15.48,
+        "squareFootage": 40796.19,
+        "annualRent": 1334234.15,
+        "operatingExpenses": 430524.12,
+        "vacancyRate": 0.0874,
+        "rentalYield": 0.0531,
+        "energyEfficiencyRating": "A",
+        "treeCanopyPercentage": 23.14,
+        "surfaceTemperature": 28.3,
+        "latitude": 48.15009,
+        "longitude": 11.562161
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              11.561981,
+              48.14991
+            ],
+            [
+              11.562341,
+              48.14991
+            ],
+            [
+              11.562341,
+              48.15027
+            ],
+            [
+              11.561981,
+              48.15027
+            ],
+            [
+              11.561981,
+              48.14991
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "513a842c-0a0d-433a-8f55-4f6f77d6ee80",
+        "externalId": "BLDG-024",
+        "name": "Obersendling Park",
+        "address": "Maximilianstraße 96, District 5",
+        "city": "Munich",
+        "buildingType": "IT Park",
+        "yearBuilt": 2016,
+        "floors": 29,
+        "heightM": 101.06,
+        "squareFootage": 165878.75,
+        "annualRent": 6959790.19,
+        "operatingExpenses": 2005205.55,
+        "vacancyRate": 0.0805,
+        "rentalYield": 0.0492,
+        "energyEfficiencyRating": "C",
+        "treeCanopyPercentage": 38.55,
+        "surfaceTemperature": 26.7,
+        "latitude": 48.138569,
+        "longitude": 11.580459
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              11.580279,
+              48.138389
+            ],
+            [
+              11.580639,
+              48.138389
+            ],
+            [
+              11.580639,
+              48.138749
+            ],
+            [
+              11.580279,
+              48.138749
+            ],
+            [
+              11.580279,
+              48.138389
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "30285235-984e-4ed0-9753-9d5488038d3b",
+        "externalId": "BLDG-025",
+        "name": "Münchner Freiheit Center",
+        "address": "Maximilianstraße 100, District 1",
+        "city": "Munich",
+        "buildingType": "Retail Complex",
+        "yearBuilt": 2023,
+        "floors": 7,
+        "heightM": 23.54,
+        "squareFootage": 64075.75,
+        "annualRent": 2088892.77,
+        "operatingExpenses": 436805.71,
+        "vacancyRate": 0.123,
+        "rentalYield": 0.0601,
+        "energyEfficiencyRating": "B",
+        "treeCanopyPercentage": 31.34,
+        "surfaceTemperature": 28.5,
+        "latitude": 48.137021,
+        "longitude": 11.58553
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              11.58535,
+              48.136841
+            ],
+            [
+              11.58571,
+              48.136841
+            ],
+            [
+              11.58571,
+              48.137201
+            ],
+            [
+              11.58535,
+              48.137201
+            ],
+            [
+              11.58535,
+              48.136841
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "fa498485-7409-46d1-a4dd-d72906d67f03",
+        "externalId": "BLDG-026",
+        "name": "Neuhausen Office Hub",
+        "address": "Maximilianstraße 104, District 2",
+        "city": "Munich",
+        "buildingType": "Commercial Office",
+        "yearBuilt": 2001,
+        "floors": 17,
+        "heightM": 59.05,
+        "squareFootage": 172310.52,
+        "annualRent": 6152145.12,
+        "operatingExpenses": 1394873.19,
+        "vacancyRate": 0.0758,
+        "rentalYield": 0.0389,
+        "energyEfficiencyRating": "E",
+        "treeCanopyPercentage": 15.81,
+        "surfaceTemperature": 29.6,
+        "latitude": 48.13625,
+        "longitude": 11.562905
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              11.562725,
+              48.13607
+            ],
+            [
+              11.563085,
+              48.13607
+            ],
+            [
+              11.563085,
+              48.13643
+            ],
+            [
+              11.562725,
+              48.13643
+            ],
+            [
+              11.562725,
+              48.13607
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "024e316b-317c-4a3b-aa5d-a06d08efedfa",
+        "externalId": "BLDG-027",
+        "name": "Feldmoching Tech Center",
+        "address": "Maximilianstraße 108, District 3",
+        "city": "Munich",
+        "buildingType": "Mixed-Use Commercial",
+        "yearBuilt": 2000,
+        "floors": 4,
+        "heightM": 15.18,
+        "squareFootage": 40832.24,
+        "annualRent": 1114447.27,
+        "operatingExpenses": 382884.56,
+        "vacancyRate": 0.1062,
+        "rentalYield": 0.0371,
+        "energyEfficiencyRating": "E",
+        "treeCanopyPercentage": 29.51,
+        "surfaceTemperature": 29.2,
+        "latitude": 48.131832,
+        "longitude": 11.56235
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              11.56217,
+              48.131652
+            ],
+            [
+              11.56253,
+              48.131652
+            ],
+            [
+              11.56253,
+              48.132012
+            ],
+            [
+              11.56217,
+              48.132012
+            ],
+            [
+              11.56217,
+              48.131652
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "386496c7-4239-4497-9717-c7bddc0956b0",
+        "externalId": "BLDG-028",
+        "name": "Trudering Commercial Suite",
+        "address": "Maximilianstraße 112, District 4",
+        "city": "Munich",
+        "buildingType": "Retail Complex",
+        "yearBuilt": 2022,
+        "floors": 9,
+        "heightM": 31.25,
+        "squareFootage": 58070.49,
+        "annualRent": 2149743.54,
+        "operatingExpenses": 551091.63,
+        "vacancyRate": 0.0632,
+        "rentalYield": 0.0398,
+        "energyEfficiencyRating": "C",
+        "treeCanopyPercentage": 25.41,
+        "surfaceTemperature": 28.2,
+        "latitude": 48.120111,
+        "longitude": 11.572638
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              11.572458,
+              48.119931
+            ],
+            [
+              11.572818,
+              48.119931
+            ],
+            [
+              11.572818,
+              48.120291
+            ],
+            [
+              11.572458,
+              48.120291
+            ],
+            [
+              11.572458,
+              48.119931
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "35b2a5ee-c068-4a59-b5a5-f4bb63b4c314",
+        "externalId": "BLDG-029",
+        "name": "Sendlinger Tor Plaza",
+        "address": "Maximilianstraße 116, District 5",
+        "city": "Munich",
+        "buildingType": "IT Park",
+        "yearBuilt": 2005,
+        "floors": 9,
+        "heightM": 32.33,
+        "squareFootage": 90080.94,
+        "annualRent": 2507539.63,
+        "operatingExpenses": 642012.59,
+        "vacancyRate": 0.0409,
+        "rentalYield": 0.0505,
+        "energyEfficiencyRating": "D",
+        "treeCanopyPercentage": 7.53,
+        "surfaceTemperature": 31.5,
+        "latitude": 48.120021,
+        "longitude": 11.589506
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              11.589326,
+              48.119841
+            ],
+            [
+              11.589686,
+              48.119841
+            ],
+            [
+              11.589686,
+              48.120201
+            ],
+            [
+              11.589326,
+              48.120201
+            ],
+            [
+              11.589326,
+              48.119841
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "2f5a8350-4030-4023-8944-a115e7163437",
+        "externalId": "BLDG-030",
+        "name": "Prinzregenten Tower",
+        "address": "Maximilianstraße 120, District 1",
+        "city": "Munich",
+        "buildingType": "Retail Complex",
+        "yearBuilt": 1999,
+        "floors": 6,
+        "heightM": 22.25,
+        "squareFootage": 33943.65,
+        "annualRent": 1100585.72,
+        "operatingExpenses": 249946.01,
+        "vacancyRate": 0.0853,
+        "rentalYield": 0.0557,
+        "energyEfficiencyRating": "D",
+        "treeCanopyPercentage": 6.4,
+        "surfaceTemperature": 31.3,
+        "latitude": 48.152141,
+        "longitude": 11.567486
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              11.567306,
+              48.151961
+            ],
+            [
+              11.567666,
+              48.151961
+            ],
+            [
+              11.567666,
+              48.152321
+            ],
+            [
+              11.567306,
+              48.152321
+            ],
+            [
+              11.567306,
+              48.151961
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "caf35c7c-31b6-4561-8545-138e7baefe7a",
+        "externalId": "BLDG-031",
+        "name": "Isarvorstadt Chambers",
+        "address": "Maximilianstraße 124, District 2",
+        "city": "Munich",
+        "buildingType": "Retail Complex",
+        "yearBuilt": 1998,
+        "floors": 30,
+        "heightM": 104.27,
+        "squareFootage": 176398.96,
+        "annualRent": 5448497.3,
+        "operatingExpenses": 1607586.08,
+        "vacancyRate": 0.0504,
+        "rentalYield": 0.0541,
+        "energyEfficiencyRating": "A",
+        "treeCanopyPercentage": 26.91,
+        "surfaceTemperature": 27.9,
+        "latitude": 48.132824,
+        "longitude": 11.580044
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              11.579864,
+              48.132644
+            ],
+            [
+              11.580224,
+              48.132644
+            ],
+            [
+              11.580224,
+              48.133004
+            ],
+            [
+              11.579864,
+              48.133004
+            ],
+            [
+              11.579864,
+              48.132644
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "ea89808d-129d-431c-ab2b-1063caa50809",
+        "externalId": "BLDG-032",
+        "name": "Ludwigstraße Executive",
+        "address": "Maximilianstraße 128, District 3",
+        "city": "Munich",
+        "buildingType": "Mixed-Use Commercial",
+        "yearBuilt": 2009,
+        "floors": 28,
+        "heightM": 97.03,
+        "squareFootage": 321796.98,
+        "annualRent": 8652431.83,
+        "operatingExpenses": 2794967.88,
+        "vacancyRate": 0.1088,
+        "rentalYield": 0.0497,
+        "energyEfficiencyRating": "A",
+        "treeCanopyPercentage": 21.94,
+        "surfaceTemperature": 30.0,
+        "latitude": 48.142594,
+        "longitude": 11.556229
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              11.556049,
+              48.142414
+            ],
+            [
+              11.556409,
+              48.142414
+            ],
+            [
+              11.556409,
+              48.142774
+            ],
+            [
+              11.556049,
+              48.142774
+            ],
+            [
+              11.556049,
+              48.142414
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "d20e56aa-72db-464f-a638-5de31d3574da",
+        "externalId": "BLDG-033",
+        "name": "Bogenhausen Park Place",
+        "address": "Maximilianstraße 132, District 4",
+        "city": "Munich",
+        "buildingType": "IT Park",
+        "yearBuilt": 2009,
+        "floors": 22,
+        "heightM": 78.81,
+        "squareFootage": 200664.15,
+        "annualRent": 8569393.51,
+        "operatingExpenses": 2004616.99,
+        "vacancyRate": 0.1489,
+        "rentalYield": 0.0647,
+        "energyEfficiencyRating": "E",
+        "treeCanopyPercentage": 37.45,
+        "surfaceTemperature": 28.3,
+        "latitude": 48.153049,
+        "longitude": 11.571161
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              11.570981,
+              48.152869
+            ],
+            [
+              11.571341,
+              48.152869
+            ],
+            [
+              11.571341,
+              48.153229
+            ],
+            [
+              11.570981,
+              48.153229
+            ],
+            [
+              11.570981,
+              48.152869
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "15a5250e-3da0-4b00-b6d0-1bfd2bff153c",
+        "externalId": "BLDG-034",
+        "name": "Glockenbach Corporate",
+        "address": "Maximilianstraße 136, District 5",
+        "city": "Munich",
+        "buildingType": "Commercial Office",
+        "yearBuilt": 2005,
+        "floors": 22,
+        "heightM": 76.75,
+        "squareFootage": 141290.37,
+        "annualRent": 5143567.54,
+        "operatingExpenses": 1695218.51,
+        "vacancyRate": 0.0986,
+        "rentalYield": 0.0533,
+        "energyEfficiencyRating": "E",
+        "treeCanopyPercentage": 13.69,
+        "surfaceTemperature": 30.1,
+        "latitude": 48.149862,
+        "longitude": 11.583264
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              11.583084,
+              48.149682
+            ],
+            [
+              11.583444,
+              48.149682
+            ],
+            [
+              11.583444,
+              48.150042
+            ],
+            [
+              11.583084,
+              48.150042
+            ],
+            [
+              11.583084,
+              48.149682
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "ae7fd68a-ea77-4c33-a28b-dc4ac8f5024c",
+        "externalId": "BLDG-035",
+        "name": "Max-Weber-Platz Forum",
+        "address": "Maximilianstraße 140, District 1",
+        "city": "Munich",
+        "buildingType": "Retail Complex",
+        "yearBuilt": 2014,
+        "floors": 20,
+        "heightM": 69.88,
+        "squareFootage": 194108.43,
+        "annualRent": 5787577.31,
+        "operatingExpenses": 1515677.39,
+        "vacancyRate": 0.1284,
+        "rentalYield": 0.0463,
+        "energyEfficiencyRating": "D",
+        "treeCanopyPercentage": 25.69,
+        "surfaceTemperature": 28.6,
+        "latitude": 48.117519,
+        "longitude": 11.560669
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              11.560489,
+              48.117339
+            ],
+            [
+              11.560849,
+              48.117339
+            ],
+            [
+              11.560849,
+              48.117699
+            ],
+            [
+              11.560489,
+              48.117699
+            ],
+            [
+              11.560489,
+              48.117339
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "5a285461-33a6-4cca-88af-905d7b915684",
+        "externalId": "BLDG-036",
+        "name": "Schwabing Nord Center",
+        "address": "Maximilianstraße 144, District 2",
+        "city": "Munich",
+        "buildingType": "Commercial Office",
+        "yearBuilt": 2017,
+        "floors": 21,
+        "heightM": 73.6,
+        "squareFootage": 185253.84,
+        "annualRent": 8185332.12,
+        "operatingExpenses": 2741747.49,
+        "vacancyRate": 0.0224,
+        "rentalYield": 0.0645,
+        "energyEfficiencyRating": "D",
+        "treeCanopyPercentage": 5.02,
+        "surfaceTemperature": 31.9,
+        "latitude": 48.15645,
+        "longitude": 11.563297
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              11.563117,
+              48.15627
+            ],
+            [
+              11.563477,
+              48.15627
+            ],
+            [
+              11.563477,
+              48.15663
+            ],
+            [
+              11.563117,
+              48.15663
+            ],
+            [
+              11.563117,
+              48.15627
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "4e5478cc-a105-45a4-b904-96b95ee37c52",
+        "externalId": "BLDG-037",
+        "name": "Freimann Tech Square",
+        "address": "Maximilianstraße 148, District 3",
+        "city": "Munich",
+        "buildingType": "Commercial Office",
+        "yearBuilt": 2020,
+        "floors": 9,
+        "heightM": 31.55,
+        "squareFootage": 54923.82,
+        "annualRent": 1756371.9,
+        "operatingExpenses": 413996.46,
+        "vacancyRate": 0.0287,
+        "rentalYield": 0.0374,
+        "energyEfficiencyRating": "D",
+        "treeCanopyPercentage": 21.82,
+        "surfaceTemperature": 28.8,
+        "latitude": 48.126856,
+        "longitude": 11.567445
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              11.567265,
+              48.126676
+            ],
+            [
+              11.567625,
+              48.126676
+            ],
+            [
+              11.567625,
+              48.127036
+            ],
+            [
+              11.567265,
+              48.127036
+            ],
+            [
+              11.567265,
+              48.126676
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "6f385d29-48c2-4349-9e81-70fca1fc7238",
+        "externalId": "BLDG-038",
+        "name": "Perlach Business Hub",
+        "address": "Maximilianstraße 152, District 4",
+        "city": "Munich",
+        "buildingType": "IT Park",
+        "yearBuilt": 1999,
+        "floors": 14,
+        "heightM": 50.49,
+        "squareFootage": 80490.26,
+        "annualRent": 2182851.93,
+        "operatingExpenses": 499617.8,
+        "vacancyRate": 0.0421,
+        "rentalYield": 0.0447,
+        "energyEfficiencyRating": "C",
+        "treeCanopyPercentage": 44.11,
+        "surfaceTemperature": 26.6,
+        "latitude": 48.144852,
+        "longitude": 11.566824
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              11.566644,
+              48.144672
+            ],
+            [
+              11.567004,
+              48.144672
+            ],
+            [
+              11.567004,
+              48.145032
+            ],
+            [
+              11.566644,
+              48.145032
+            ],
+            [
+              11.566644,
+              48.144672
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "5d03afcf-4825-4e73-b562-b37debe5b775",
+        "externalId": "BLDG-039",
+        "name": "Hadern Medical & Office",
+        "address": "Maximilianstraße 156, District 5",
+        "city": "Munich",
+        "buildingType": "IT Park",
+        "yearBuilt": 2017,
+        "floors": 7,
+        "heightM": 24.97,
+        "squareFootage": 58418.19,
+        "annualRent": 1561939.69,
+        "operatingExpenses": 522899.22,
+        "vacancyRate": 0.1169,
+        "rentalYield": 0.0568,
+        "energyEfficiencyRating": "B",
+        "treeCanopyPercentage": 34.97,
+        "surfaceTemperature": 28.3,
+        "latitude": 48.119444,
+        "longitude": 11.561043
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              11.560863,
+              48.119264
+            ],
+            [
+              11.561223,
+              48.119264
+            ],
+            [
+              11.561223,
+              48.119624
+            ],
+            [
+              11.560863,
+              48.119624
+            ],
+            [
+              11.560863,
+              48.119264
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "85da186f-d6e2-4c9d-a972-3e22cc29ef6e",
+        "externalId": "BLDG-040",
+        "name": "Forstenrieder Plaza",
+        "address": "Maximilianstraße 160, District 1",
+        "city": "Munich",
+        "buildingType": "Retail Complex",
+        "yearBuilt": 2017,
+        "floors": 13,
+        "heightM": 45.7,
+        "squareFootage": 144862.93,
+        "annualRent": 3827928.79,
+        "operatingExpenses": 1202196.48,
+        "vacancyRate": 0.0396,
+        "rentalYield": 0.0472,
+        "energyEfficiencyRating": "B",
+        "treeCanopyPercentage": 40.3,
+        "surfaceTemperature": 26.8,
+        "latitude": 48.142232,
+        "longitude": 11.559105
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              11.558925,
+              48.142052
+            ],
+            [
+              11.559285,
+              48.142052
+            ],
+            [
+              11.559285,
+              48.142412
+            ],
+            [
+              11.558925,
+              48.142412
+            ],
+            [
+              11.558925,
+              48.142052
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "06eb43ad-34d2-4ef0-af84-60972a6af15d",
+        "externalId": "BLDG-041",
+        "name": "Solln Commercial Lodge",
+        "address": "Maximilianstraße 164, District 2",
+        "city": "Munich",
+        "buildingType": "Commercial Office",
+        "yearBuilt": 1999,
+        "floors": 9,
+        "heightM": 32.12,
+        "squareFootage": 51817.91,
+        "annualRent": 1353481.95,
+        "operatingExpenses": 453921.92,
+        "vacancyRate": 0.0312,
+        "rentalYield": 0.0529,
+        "energyEfficiencyRating": "C",
+        "treeCanopyPercentage": 18.36,
+        "surfaceTemperature": 30.0,
+        "latitude": 48.140223,
+        "longitude": 11.558192
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              11.558012,
+              48.140043
+            ],
+            [
+              11.558372,
+              48.140043
+            ],
+            [
+              11.558372,
+              48.140403
+            ],
+            [
+              11.558012,
+              48.140403
+            ],
+            [
+              11.558012,
+              48.140043
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "80ed5a86-8380-417c-b58b-6c303369ac2e",
+        "externalId": "BLDG-042",
+        "name": "Aubing Innovation Park",
+        "address": "Maximilianstraße 168, District 3",
+        "city": "Munich",
+        "buildingType": "Commercial Office",
+        "yearBuilt": 2009,
+        "floors": 11,
+        "heightM": 38.69,
+        "squareFootage": 76399.06,
+        "annualRent": 3058454.02,
+        "operatingExpenses": 982324.04,
+        "vacancyRate": 0.0205,
+        "rentalYield": 0.0503,
+        "energyEfficiencyRating": "E",
+        "treeCanopyPercentage": 25.72,
+        "surfaceTemperature": 28.1,
+        "latitude": 48.131255,
+        "longitude": 11.567804
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              11.567624,
+              48.131075
+            ],
+            [
+              11.567984,
+              48.131075
+            ],
+            [
+              11.567984,
+              48.131435
+            ],
+            [
+              11.567624,
+              48.131435
+            ],
+            [
+              11.567624,
+              48.131075
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "c4be262c-fcc6-4073-8293-fd270296a198",
+        "externalId": "BLDG-043",
+        "name": "Allach Business Complex",
+        "address": "Maximilianstraße 172, District 4",
+        "city": "Munich",
+        "buildingType": "Retail Complex",
+        "yearBuilt": 2019,
+        "floors": 24,
+        "heightM": 85.51,
+        "squareFootage": 287008.0,
+        "annualRent": 12661838.89,
+        "operatingExpenses": 3805880.45,
+        "vacancyRate": 0.0497,
+        "rentalYield": 0.0613,
+        "energyEfficiencyRating": "B",
+        "treeCanopyPercentage": 38.25,
+        "surfaceTemperature": 27.7,
+        "latitude": 48.118207,
+        "longitude": 11.575039
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              11.574859,
+              48.118027
+            ],
+            [
+              11.575219,
+              48.118027
+            ],
+            [
+              11.575219,
+              48.118387
+            ],
+            [
+              11.574859,
+              48.118387
+            ],
+            [
+              11.574859,
+              48.118027
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "25daa3b9-7082-4eda-964f-dfc92f9c90f9",
+        "externalId": "BLDG-044",
+        "name": "Unterföhring Media Tower",
+        "address": "Maximilianstraße 176, District 5",
+        "city": "Munich",
+        "buildingType": "Commercial Office",
+        "yearBuilt": 2019,
+        "floors": 23,
+        "heightM": 79.7,
+        "squareFootage": 219793.78,
+        "annualRent": 7415339.38,
+        "operatingExpenses": 1951634.25,
+        "vacancyRate": 0.0621,
+        "rentalYield": 0.0589,
+        "energyEfficiencyRating": "E",
+        "treeCanopyPercentage": 40.68,
+        "surfaceTemperature": 27.3,
+        "latitude": 48.120415,
+        "longitude": 11.5659
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              11.56572,
+              48.120235
+            ],
+            [
+              11.56608,
+              48.120235
+            ],
+            [
+              11.56608,
+              48.120595
+            ],
+            [
+              11.56572,
+              48.120595
+            ],
+            [
+              11.56572,
+              48.120235
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "5690108a-4f14-4fc8-af5b-9a6d8ac63a06",
+        "externalId": "BLDG-045",
+        "name": "Dornach Logistics & Office",
+        "address": "Maximilianstraße 180, District 1",
+        "city": "Munich",
+        "buildingType": "Retail Complex",
+        "yearBuilt": 2008,
+        "floors": 11,
+        "heightM": 38.93,
+        "squareFootage": 84831.35,
+        "annualRent": 2602078.37,
+        "operatingExpenses": 903876.57,
+        "vacancyRate": 0.0717,
+        "rentalYield": 0.0645,
+        "energyEfficiencyRating": "C",
+        "treeCanopyPercentage": 42.3,
+        "surfaceTemperature": 26.8,
+        "latitude": 48.154256,
+        "longitude": 11.569846
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              11.569666,
+              48.154076
+            ],
+            [
+              11.570026,
+              48.154076
+            ],
+            [
+              11.570026,
+              48.154436
+            ],
+            [
+              11.569666,
+              48.154436
+            ],
+            [
+              11.569666,
+              48.154076
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "c16a93de-d519-4666-91c6-7e9489afdb5f",
+        "externalId": "BLDG-046",
+        "name": "Garching Tech Hub",
+        "address": "Maximilianstraße 184, District 2",
+        "city": "Munich",
+        "buildingType": "IT Park",
+        "yearBuilt": 2008,
+        "floors": 17,
+        "heightM": 60.53,
+        "squareFootage": 146373.68,
+        "annualRent": 5931739.5,
+        "operatingExpenses": 1618828.4,
+        "vacancyRate": 0.0723,
+        "rentalYield": 0.0624,
+        "energyEfficiencyRating": "A",
+        "treeCanopyPercentage": 10.42,
+        "surfaceTemperature": 30.5,
+        "latitude": 48.13411,
+        "longitude": 11.595392
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              11.595212,
+              48.13393
+            ],
+            [
+              11.595572,
+              48.13393
+            ],
+            [
+              11.595572,
+              48.13429
+            ],
+            [
+              11.595212,
+              48.13429
+            ],
+            [
+              11.595212,
+              48.13393
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "81f92ff7-514b-486c-ac0e-4c6ecf749ce7",
+        "externalId": "BLDG-047",
+        "name": "Martinsried BioCenter",
+        "address": "Maximilianstraße 188, District 3",
+        "city": "Munich",
+        "buildingType": "Commercial Office",
+        "yearBuilt": 2002,
+        "floors": 20,
+        "heightM": 71.65,
+        "squareFootage": 236723.45,
+        "annualRent": 9893064.73,
+        "operatingExpenses": 2523097.41,
+        "vacancyRate": 0.0951,
+        "rentalYield": 0.0427,
+        "energyEfficiencyRating": "E",
+        "treeCanopyPercentage": 43.11,
+        "surfaceTemperature": 27.4,
+        "latitude": 48.151,
+        "longitude": 11.594817
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              11.594637,
+              48.15082
+            ],
+            [
+              11.594997,
+              48.15082
+            ],
+            [
+              11.594997,
+              48.15118
+            ],
+            [
+              11.594637,
+              48.15118
+            ],
+            [
+              11.594637,
+              48.15082
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "1a2d375d-5f30-4445-9558-277188544164",
+        "externalId": "BLDG-048",
+        "name": "Aschheim Business Park",
+        "address": "Maximilianstraße 192, District 4",
+        "city": "Munich",
+        "buildingType": "Mixed-Use Commercial",
+        "yearBuilt": 2017,
+        "floors": 6,
+        "heightM": 21.91,
+        "squareFootage": 51020.77,
+        "annualRent": 1843596.02,
+        "operatingExpenses": 566954.32,
+        "vacancyRate": 0.0353,
+        "rentalYield": 0.0457,
+        "energyEfficiencyRating": "C",
+        "treeCanopyPercentage": 6.4,
+        "surfaceTemperature": 31.8,
+        "latitude": 48.118165,
+        "longitude": 11.557382
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              11.557202,
+              48.117985
+            ],
+            [
+              11.557562,
+              48.117985
+            ],
+            [
+              11.557562,
+              48.118345
+            ],
+            [
+              11.557202,
+              48.118345
+            ],
+            [
+              11.557202,
+              48.117985
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "bb796fd3-7292-4b82-9d9a-774b7e2653de",
+        "externalId": "BLDG-049",
+        "name": "Gräfelfing Corporate Campus",
+        "address": "Maximilianstraße 196, District 5",
+        "city": "Munich",
+        "buildingType": "Retail Complex",
+        "yearBuilt": 2015,
+        "floors": 13,
+        "heightM": 45.76,
+        "squareFootage": 88352.21,
+        "annualRent": 3963951.52,
+        "operatingExpenses": 1230138.54,
+        "vacancyRate": 0.0591,
+        "rentalYield": 0.0355,
+        "energyEfficiencyRating": "E",
+        "treeCanopyPercentage": 28.18,
+        "surfaceTemperature": 27.8,
+        "latitude": 48.125923,
+        "longitude": 11.582486
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              11.582306,
+              48.125743
+            ],
+            [
+              11.582666,
+              48.125743
+            ],
+            [
+              11.582666,
+              48.126103
+            ],
+            [
+              11.582306,
+              48.126103
+            ],
+            [
+              11.582306,
+              48.125743
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "3e69691d-3400-443e-927f-126072602495",
+        "externalId": "BLDG-050",
+        "name": "Ottobrunn Tech Suites",
+        "address": "Maximilianstraße 200, District 1",
+        "city": "Munich",
+        "buildingType": "Commercial Office",
+        "yearBuilt": 2019,
+        "floors": 12,
+        "heightM": 42.16,
+        "squareFootage": 69043.21,
+        "annualRent": 3008022.41,
+        "operatingExpenses": 791867.95,
+        "vacancyRate": 0.0242,
+        "rentalYield": 0.053,
+        "energyEfficiencyRating": "E",
+        "treeCanopyPercentage": 10.18,
+        "surfaceTemperature": 30.4,
+        "latitude": 48.118522,
+        "longitude": 11.583236
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              11.583056,
+              48.118342
+            ],
+            [
+              11.583416,
+              48.118342
+            ],
+            [
+              11.583416,
+              48.118702
+            ],
+            [
+              11.583056,
+              48.118702
+            ],
+            [
+              11.583056,
+              48.118342
+            ]
+          ]
+        ]
+      }
+    }
+  ]
+}

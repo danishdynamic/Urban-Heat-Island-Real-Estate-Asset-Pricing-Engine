@@ -3,7 +3,6 @@ import {
   CreateDateColumn,
   Entity,
   PrimaryGeneratedColumn,
-  UpdateDateColumn,
 } from 'typeorm';
 
 @Entity('buildings')
@@ -27,10 +26,74 @@ export class Building {
   address: string | null;
 
   @Column({
+    type: 'varchar',
+    length: 100,
+    nullable: true,
+  })
+  city: string | null;
+
+  @Column({
+    name: 'building_type',
+    type: 'varchar',
+    length: 50,
+    nullable: true,
+  })
+  buildingType: string | null;
+
+  @Column({
+    name: 'year_built',
+    type: 'integer',
+    nullable: true,
+  })
+  yearBuilt: number | null;
+
+  @Column({
+    type: 'integer',
+    nullable: true,
+  })
+  floors: number | null;
+
+  @Column({
+    name: 'height_m',
+    type: 'numeric',
+    precision: 6,
+    scale: 2,
+    nullable: true,
+  })
+  heightM: number | null;
+
+  @Column({
     name: 'square_footage',
     type: 'numeric',
   })
   squareFootage: number;
+
+  @Column({
+    name: 'annual_rent',
+    type: 'numeric',
+    precision: 12,
+    scale: 2,
+    nullable: true,
+  })
+  annualRent: number | null;
+
+  @Column({
+    name: 'operating_expenses',
+    type: 'numeric',
+    precision: 12,
+    scale: 2,
+    nullable: true,
+  })
+  operatingExpenses: number | null;
+
+  @Column({
+    name: 'vacancy_rate',
+    type: 'numeric',
+    precision: 5,
+    scale: 4,
+    nullable: true,
+  })
+  vacancyRate: number | null;
 
   @Column({
     name: 'rental_yield',
@@ -39,6 +102,14 @@ export class Building {
     scale: 4,
   })
   rentalYield: number;
+
+  @Column({
+    name: 'energy_efficiency_rating',
+    type: 'varchar',
+    length: 10,
+    nullable: true,
+  })
+  energyEfficiencyRating: string | null;
 
   @Column({
     name: 'tree_canopy_percentage',
@@ -55,20 +126,6 @@ export class Building {
     scale: 2,
   })
   surfaceTemperature: number;
-
-  @Column({
-    name: 'energy_efficiency_rating',
-    type: 'varchar',
-    length: 10,
-    nullable: true,
-  })
-  energyEfficiencyRating: string | null;
-
-  @Column({
-    name: 'annual_hvac_cost',
-    type: 'numeric',
-  })
-  annualHvacCost: number;
 
   @Column({
     name: 'latitude',
@@ -93,9 +150,4 @@ export class Building {
     name: 'created_at',
   })
   createdAt: Date;
-
-  @UpdateDateColumn({
-    name: 'updated_at',
-  })
-  updatedAt: Date;
 }

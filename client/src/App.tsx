@@ -1,7 +1,18 @@
-import { Dashboard } from './pages/Dashboard';
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 
-function App() {
-  return <Dashboard />;
+import LandingPage from './pages/LandingPage';
+import DashboardPage from './pages/DashboardPage';
+
+export default function App() {
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<LandingPage />} />
+        <Route path="/dashboard" element={<DashboardPage />} />
+
+        {/* Fallback redirect for undefined routes */}
+        <Route path="*" element={<Navigate to="/" replace />} />
+      </Routes>
+    </BrowserRouter>
+  );
 }
-
-export default App;
