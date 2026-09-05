@@ -7,6 +7,9 @@ export interface Building {
 
   squareFootage: number;
   rentalYield: number;
+  annualRent: number;
+  operatingExpenses: number;
+  vacancyRate: number;
 
   treeCanopyPercentage: number;
   surfaceTemperature: number;

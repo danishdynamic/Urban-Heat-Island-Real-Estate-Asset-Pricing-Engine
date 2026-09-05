@@ -25,42 +25,30 @@ export class ValuationsService {
       ) ?? 'http://localhost:8000';
   }
 
-  async calculate(
-    request: CreateValuationDto,
-  ) {
+    async calculate(request: CreateValuationDto) {
+    console.log('Valuation request received:', request);
+
     try {
-      const response =
-        await firstValueFrom(
-          this.httpService.post(
-            `${this.quantServiceUrl}/valuation/dcf`,
-            {
-              property_id: request.buildingId,
-
-              annual_rent:
-                request.annualRent,
-
-              operating_expenses:
-                request.operatingExpenses,
-
-              vacancy_rate:
-                request.vacancyRate,
-
-              discount_rate:
-                request.discountRate,
-
-              years: request.years,
-
-              temperature_delta:
-                request.temperatureDelta,
-
-              hvac_cost_increase:
-                request.hvacCostIncrease,
-            },
-          ),
-        );
+      const response = await firstValueFrom(
+        this.httpService.post(
+          `${this.quantServiceUrl}/valuation/dcf`,
+          {
+            property_id: request.buildingId,
+            annual_rent: request.annualRent,
+            operating_expenses: request.operatingExpenses,
+            vacancy_rate: request.vacancyRate,
+            discount_rate: request.discountRate,
+            years: request.years,
+            temperature_delta: request.temperatureDelta,
+            hvac_cost_increase: request.hvacCostIncrease,
+          },
+        ),
+      );
 
       return response.data;
     } catch (error) {
+      console.error('Quant valuation error:', error);
+
       throw new BadGatewayException(
         'Quant valuation service unavailable',
       );

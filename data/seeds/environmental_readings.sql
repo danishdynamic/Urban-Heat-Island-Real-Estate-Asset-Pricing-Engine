@@ -1,4 +1,4 @@
-INSERT INTO environmental_readings (id, building_id, recorded_at, surface_temperature, air_temperature, temperature_delta, tree_canopy_percentage, hvac_cost) VALUES
+INSERT INTO environmental_readings (id, building_id, recorded_at, surface_temperature, air_temperature, temperature_delta, tree_canopy_percentage, energy_consumption_kwh) VALUES
 ('e7e23a97-7421-47b0-ba73-a1f9a1d2c3d1', '825dc113-67f3-438f-b5a8-90d4c84290b8', '2026-08-01 14:00:00', 29.3, 28.1, 1.2, 20.64, 1654.7),
 ('f51ae632-9070-407c-b348-c258de43393a', '825dc113-67f3-438f-b5a8-90d4c84290b8', '2026-08-02 14:00:00', 29.7, 28.1, 1.6, 20.64, 1703.01),
 ('b01112b2-a25d-40da-afd1-57893b9d8caf', '825dc113-67f3-438f-b5a8-90d4c84290b8', '2026-08-03 14:00:00', 30.6, 28.7, 1.9, 20.64, 1739.25),

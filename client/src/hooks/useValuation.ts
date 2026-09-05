@@ -1,17 +1,25 @@
-import {
-  useMutation,
-} from '@tanstack/react-query';
+import { useMutation } from '@tanstack/react-query';
 
 import {
   calculateValuation,
-  type ValuationRequest,
+  calculateScenarioAnalysis,
 } from '../api/valuations';
+
+import type {
+  ScenarioAnalysisRequest,
+  ValuationRequest,
+} from '../types/valuation';
 
 export function useValuation() {
   return useMutation({
-    mutationFn: (
-      request: ValuationRequest,
-    ) =>
+    mutationFn: (request: ValuationRequest) =>
       calculateValuation(request),
+  });
+}
+
+export function useScenarioAnalysis() {
+  return useMutation({
+    mutationFn: (request: ScenarioAnalysisRequest) =>
+      calculateScenarioAnalysis(request),
   });
 }

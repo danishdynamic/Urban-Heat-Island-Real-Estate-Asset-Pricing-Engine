@@ -31,11 +31,13 @@ export const getTemperatureColor = (temp: number): [number, number, number] => {
 interface BuildingMapProps {
   data: FeatureCollection<Geometry, BuildingProperties>;
   mapStyle?: string;
+  onBuildingSelect?: (buildingId: string) => void;
 }
 
 export const BuildingMap: React.FC<BuildingMapProps> = ({
   data,
   mapStyle = 'https://basemaps.cartocdn.com/gl/dark-matter-gl-style/style.json',
+  onBuildingSelect,
 }) => {
   const [hoverInfo, setHoverInfo] = useState<{
     x: number;
@@ -52,6 +54,12 @@ export const BuildingMap: React.FC<BuildingMapProps> = ({
       extruded: true,
       wireframe: true,
       pickable: true,
+      onClick: (info) => {
+        const properties = info.object?.properties as BuildingProperties | undefined;
+        if (properties?.id) {
+          onBuildingSelect?.(properties.id);
+        }
+      },
       getElevation: (f: Feature) => (f.properties as BuildingProperties)?.heightM || 10,
       getFillColor: (f: Feature) => {
         const temp = (f.properties as BuildingProperties)?.surfaceTemperature || 25;
@@ -66,7 +74,7 @@ export const BuildingMap: React.FC<BuildingMapProps> = ({
         getElevation: [data],
       },
     });
-  }, [data]);
+  }, [data, onBuildingSelect]);
 
   return (
     <div className="relative h-full w-full">

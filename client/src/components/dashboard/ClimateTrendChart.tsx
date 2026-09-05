@@ -1,66 +1,75 @@
 import React, { useMemo } from 'react';
 import {
-  Chart as ChartJS,
-  CategoryScale,
-  LinearScale,
-  PointElement,
-  LineElement,
+  LineChart,
+  Line,
+  XAxis,
+  YAxis,
+  CartesianGrid,
   Tooltip,
   Legend,
-} from 'chart.js';
-import { Line } from 'react-chartjs-2';
+  ResponsiveContainer,
+} from 'recharts';
 
 import { useEnvironmentReadings } from '../../hooks/useEnvironment';
 
-ChartJS.register(
-  CategoryScale,
-  LinearScale,
-  PointElement,
-  LineElement,
-  Tooltip,
-  Legend,
-);
+interface ClimateTrendChartProps {
+  selectedBuildingId?: string | null;
+}
 
-export const ClimateTrendChart: React.FC = () => {
-  const { data: readings = [], isLoading, isError } =
-    useEnvironmentReadings();
+export const ClimateTrendChart: React.FC<
+  ClimateTrendChartProps
+> = ({ selectedBuildingId }) => {
+  const {
+    data: readings,
+    isLoading,
+    isError,
+  } = useEnvironmentReadings(
+    selectedBuildingId ?? undefined,
+  );
 
   const chartData = useMemo(() => {
-    const sortedReadings = [...readings].sort(
-      (a, b) =>
-        new Date(a.recordedAt).getTime() -
-        new Date(b.recordedAt).getTime(),
-    );
+    if (!selectedBuildingId || !readings?.length) {
+      return [];
+    }
 
-    return {
-      labels: sortedReadings.map((reading) =>
-        new Date(reading.recordedAt).toLocaleDateString(),
+    return readings.map((reading) => ({
+      time: new Date(reading.recordedAt).toLocaleDateString(
+        'de-DE',
+        {
+          month: 'short',
+          day: 'numeric',
+        },
       ),
 
-      datasets: [
-        {
-          label: 'Surface Temperature (°C)',
-          data: sortedReadings.map(
-            (reading) => reading.surfaceTemperature,
-          ),
-          tension: 0.3,
-        },
-        {
-          label: 'Air Temperature (°C)',
-          data: sortedReadings.map(
-            (reading) => reading.airTemperature,
-          ),
-          tension: 0.3,
-        },
-      ],
-    };
-  }, [readings]);
+      surfaceTemperature:
+        reading.surfaceTemperature,
+
+      airTemperature:
+        reading.airTemperature,
+    }));
+  }, [readings, selectedBuildingId]);
+
+  if (!selectedBuildingId) {
+    return (
+      <div className="flex h-full min-h-[400px] items-center justify-center">
+        <div className="text-center">
+          <p className="text-sm font-medium text-slate-700">
+            Select a building
+          </p>
+
+          <p className="mt-1 text-sm text-slate-500">
+            Temperature trends will appear here.
+          </p>
+        </div>
+      </div>
+    );
+  }
 
   if (isLoading) {
     return (
-      <div className="rounded-xl border border-zinc-800 bg-zinc-900 p-6">
-        <p className="text-sm text-zinc-400">
-          Loading climate trends...
+      <div className="flex h-full min-h-[400px] items-center justify-center">
+        <p className="text-sm text-slate-500">
+          Loading temperature trends...
         </p>
       </div>
     );
@@ -68,55 +77,110 @@ export const ClimateTrendChart: React.FC = () => {
 
   if (isError) {
     return (
-      <div className="rounded-xl border border-red-900 bg-red-950/30 p-6">
-        <p className="text-sm text-red-400">
-          Unable to load climate trends.
+      <div className="flex h-full min-h-[400px] items-center justify-center">
+        <p className="text-sm text-rose-600">
+          Unable to load temperature trends.
+        </p>
+      </div>
+    );
+  }
+
+  if (!chartData.length) {
+    return (
+      <div className="flex h-full min-h-[400px] items-center justify-center">
+        <p className="text-sm text-slate-500">
+          No environmental readings available for this building.
         </p>
       </div>
     );
   }
 
   return (
-    <div className="rounded-xl border border-zinc-800 bg-zinc-900 p-6">
-      <div className="mb-5">
-        <h3 className="text-lg font-semibold text-white">
+    <div className="flex h-full w-full flex-col">
+      <div className="mb-4">
+        <span className="text-xs font-semibold uppercase tracking-wider text-slate-500">
           Temperature Trend
-        </h3>
+        </span>
 
-        <p className="text-sm text-zinc-400">
-          Surface temperature vs. air temperature over time
-        </p>
+        <h3 className="text-sm font-semibold text-slate-800">
+          Selected Building — Surface vs. Air Temperature
+        </h3>
       </div>
 
-      <div className="h-[320px]">
-        <Line
-          data={chartData}
-          options={{
-            responsive: true,
-            maintainAspectRatio: false,
+      <div className="h-[400px] w-full">
+        <ResponsiveContainer
+          width="100%"
+          height="100%"
+        >
+          <LineChart
+            data={chartData}
+            margin={{
+              top: 10,
+              right: 10,
+              left: -20,
+              bottom: 0,
+            }}
+          >
+            <CartesianGrid
+              strokeDasharray="3 3"
+              stroke="#e2e8f0"
+            />
 
-            plugins: {
-              legend: {
-                position: 'top',
-              },
-            },
+            <XAxis
+              dataKey="time"
+              stroke="#64748b"
+              fontSize={11}
+            />
 
-            scales: {
-              x: {
-                ticks: {
-                  maxTicksLimit: 8,
-                },
-              },
+            <YAxis
+              stroke="#64748b"
+              fontSize={11}
+              domain={['auto', 'auto']}
+              unit="°C"
+            />
 
-              y: {
-                title: {
-                  display: true,
-                  text: 'Temperature (°C)',
-                },
-              },
-            },
-          }}
-        />
+            <Tooltip
+              formatter={(value: number | undefined) =>
+                value !== undefined
+                  ? `${value.toFixed(1)}°C`
+                  : ''
+              }
+              contentStyle={{
+                backgroundColor: '#ffffff',
+                borderColor: '#cbd5e1',
+                borderRadius: '8px',
+                fontSize: '12px',
+              }}
+            />
+
+            <Legend
+              wrapperStyle={{
+                fontSize: '12px',
+                paddingTop: '10px',
+              }}
+            />
+
+            <Line
+              type="monotone"
+              dataKey="surfaceTemperature"
+              name="Surface Temperature"
+              stroke="#0891b2"
+              strokeWidth={2.5}
+              dot={{ r: 3 }}
+              activeDot={{ r: 6 }}
+            />
+
+            <Line
+              type="monotone"
+              dataKey="airTemperature"
+              name="Air Temperature"
+              stroke="#64748b"
+              strokeWidth={2}
+              strokeDasharray="4 4"
+              dot={false}
+            />
+          </LineChart>
+        </ResponsiveContainer>
       </div>
     </div>
   );

@@ -10,15 +10,15 @@ export interface ServiceStatus {
 }
 
 export interface HealthResponse {
-  status: string;
-  database?: ServiceStatus;
-  api?: ServiceStatus;
-  quantService?: ServiceStatus;
+  status: string; 
   services?: {
     database?: ServiceStatus;
-    api?: ServiceStatus;
     quantService?: ServiceStatus;
+    api?: ServiceStatus;
   };
+  database?: ServiceStatus;
+  quantService?: ServiceStatus;
+  api?: ServiceStatus;
 }
 
 export async function fetchSystemHealth(): Promise<HealthResponse> {
@@ -26,11 +26,10 @@ export async function fetchSystemHealth(): Promise<HealthResponse> {
   return response.data;
 }
 
-// Custom hook to consume in SystemHealth.tsx
 export function useSystemHealth() {
   return useQuery<HealthResponse>({
     queryKey: ['system-health'],
     queryFn: fetchSystemHealth,
-    refetchInterval: 10000, // Automatically polls backend health every 10 seconds
+    refetchInterval: 10000,
   });
 }

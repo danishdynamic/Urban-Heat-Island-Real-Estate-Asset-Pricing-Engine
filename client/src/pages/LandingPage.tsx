@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import { motion } from 'framer-motion';
 
 export default function LandingPage() {
   return (
@@ -22,7 +23,7 @@ export default function LandingPage() {
       </header>
 
       {/* Hero Section */}
-      <section className="relative z-10 mx-auto max-w-7xl px-6 pt-20 pb-32">
+      <section className="relative z-10 mx-auto max-w-7xl px-6 pt-20 pb-20">
         <div className="max-w-3xl">
           {/* Badge */}
           <div className="inline-flex items-center gap-2 rounded-full border border-cyan-500/20 bg-cyan-500/5 px-3 py-1 text-xs font-mono text-cyan-400 backdrop-blur-md mb-8">
@@ -46,18 +47,11 @@ export default function LandingPage() {
               to="/dashboard"
               className="inline-flex items-center gap-2 rounded-lg bg-cyan-400 px-6 py-3.5 text-sm font-semibold text-slate-950 transition hover:bg-cyan-300 shadow-[0_0_24px_rgba(34,211,238,0.3)]"
             >
-              Open Interactive Map
+              Open Interactive Platform
               <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
               </svg>
             </Link>
-
-            <a
-              href="#features"
-              className="inline-flex items-center gap-2 rounded-lg border border-white/10 bg-white/5 px-6 py-3.5 text-sm font-semibold text-slate-300 hover:bg-white/10 hover:text-white transition backdrop-blur-md"
-            >
-              System Architecture
-            </a>
           </div>
 
           {/* Key Capabilities */}
@@ -84,22 +78,70 @@ export default function LandingPage() {
         </div>
       </section>
 
-      {/* Glassmorphic Mockup Frame */}
-      <section id="features" className="relative z-10 mx-auto max-w-7xl px-6 pb-24">
-        <div className="rounded-2xl border border-white/10 bg-slate-900/60 p-2 backdrop-blur-xl shadow-2xl">
-          <div className="rounded-xl border border-white/5 bg-slate-950 p-6">
-            <div className="flex items-center justify-between pb-4 border-b border-white/10">
-              <div className="flex items-center gap-2">
-                <div className="h-3 w-3 rounded-full bg-red-500/80" />
-                <div className="h-3 w-3 rounded-full bg-yellow-500/80" />
-                <div className="h-3 w-3 rounded-full bg-green-500/80" />
-              </div>
-              <span className="font-mono text-xs text-slate-500">munich_commercial_district_v1.geojson</span>
+      {/* Interactive Visual Highlights (Framer Motion replacing static map frame) */}
+      <section className="relative z-10 mx-auto max-w-7xl px-6 pb-24">
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
+          
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+            viewport={{ once: true }}
+            className="rounded-2xl border border-white/10 bg-slate-900/50 p-6 backdrop-blur-xl shadow-xl"
+          >
+            <div className="h-10 w-10 rounded-lg bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center text-cyan-400 font-mono text-sm mb-4">
+              3D
             </div>
-            <div className="h-64 flex items-center justify-center text-sm font-mono text-slate-500">
-              [ Deck.gl 3D Urban Heat Layer Visualizer ]
+            <h3 className="text-lg font-semibold text-white">Spatial Heat Layers</h3>
+            <p className="mt-2 text-xs text-slate-400 leading-relaxed">
+              High-resolution 3D building extrusions linked with surface temperature anomalies and canopy coverage index data.
+            </p>
+            <div className="mt-6 flex items-center gap-2">
+              <span className="h-2 w-2 rounded-full bg-emerald-400"></span>
+              <span className="font-mono text-[10px] text-slate-500">GeoJSON Layer Active</span>
             </div>
-          </div>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            viewport={{ once: true }}
+            className="rounded-2xl border border-white/10 bg-slate-900/50 p-6 backdrop-blur-xl shadow-xl"
+          >
+            <div className="h-10 w-10 rounded-lg bg-indigo-500/10 border border-indigo-500/20 flex items-center justify-center text-indigo-400 font-mono text-sm mb-4">
+              DCF
+            </div>
+            <h3 className="text-lg font-semibold text-white">Valuation Engine</h3>
+            <p className="mt-2 text-xs text-slate-400 leading-relaxed">
+              Adjust net operating income (NOI) automatically based on extreme heat events, HVAC energy spikes, and local cooling credits.
+            </p>
+            <div className="mt-6 flex items-center gap-2">
+              <span className="h-2 w-2 rounded-full bg-indigo-400"></span>
+              <span className="font-mono text-[10px] text-slate-500">Discounted Cash Flow</span>
+            </div>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.3 }}
+            viewport={{ once: true }}
+            className="rounded-2xl border border-white/10 bg-slate-900/50 p-6 backdrop-blur-xl shadow-xl"
+          >
+            <div className="h-10 w-10 rounded-lg bg-teal-500/10 border border-teal-500/20 flex items-center justify-center text-teal-400 font-mono text-sm mb-4">
+              NOI
+            </div>
+            <h3 className="text-lg font-semibold text-white">Scenario Analysis</h3>
+            <p className="mt-2 text-xs text-slate-400 leading-relaxed">
+              Stress-test asset portfolios across 2026–2050 warming projections to estimate CapEx requirements and yield erosion.
+            </p>
+            <div className="mt-6 flex items-center gap-2">
+              <span className="h-2 w-2 rounded-full bg-teal-400"></span>
+              <span className="font-mono text-[10px] text-slate-500">Climate Stress Test</span>
+            </div>
+          </motion.div>
+
         </div>
       </section>
     </main>

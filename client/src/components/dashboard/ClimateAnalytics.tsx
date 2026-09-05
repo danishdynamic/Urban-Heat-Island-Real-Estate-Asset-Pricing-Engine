@@ -2,9 +2,32 @@ import React, { useMemo } from 'react';
 import { useBuildings } from '../../hooks/useBuildings';
 import { useEnvironmentReadings } from '../../hooks/useEnvironment';
 
-export const ClimateAnalytics: React.FC = () => {
+interface ClimateAnalyticsProps {
+  selectedBuildingId?: string | null;
+}
+
+const average = (values: Array<number | string | null | undefined>) => {
+  const validValues = values
+    .filter((value) => value !== null && value !== undefined)
+    .map(Number)
+    .filter(Number.isFinite);
+
+  if (!validValues.length) {
+    return null;
+  }
+
+  return (
+    validValues.reduce((sum, value) => sum + value, 0) / validValues.length
+  );
+};
+
+export const ClimateAnalytics: React.FC<ClimateAnalyticsProps> = ({
+  selectedBuildingId,
+}) => {
   const buildingsQuery = useBuildings();
-  const environmentQuery = useEnvironmentReadings();
+  const environmentQuery = useEnvironmentReadings(
+    selectedBuildingId ?? undefined,
+  );
 
   const climateStats = useMemo(() => {
     const buildings = buildingsQuery.data?.data ?? [];
@@ -12,72 +35,59 @@ export const ClimateAnalytics: React.FC = () => {
 
     if (!readings.length) {
       return {
-        avgSurfaceTemperature: 0,
-        avgAirTemperature: 0,
-        avgTemperatureDelta: 0,
-        avgCanopy: 0,
+        avgSurfaceTemp: null,
+        avgAirTemp: null,
+        avgTemperatureDelta: null,
+        avgTreeCanopy: null,
         totalEnergyConsumption: 0,
         hottestBuilding: null,
       };
     }
 
-    const avg = (values: number[]) =>
-      values.length
-        ? values.reduce((sum, value) => sum + value, 0) /
-          values.length
-        : 0;
-
-    const surfaceTemperatures = readings.map(
-      (reading) => reading.surfaceTemperature,
+    const avgSurfaceTemp = average(
+      readings.map((reading) => reading.surfaceTemperature),
     );
 
-    const airTemperatures = readings
-      .map((reading) => reading.airTemperature)
-      .filter((value): value is number => value !== null);
+    const avgAirTemp = average(
+      readings.map((reading) => reading.airTemperature),
+    );
 
-    const temperatureDeltas = readings
-      .map((reading) => reading.temperatureDelta)
-      .filter((value): value is number => value !== null);
+    const avgTemperatureDelta = average(
+      readings.map((reading) => reading.temperatureDelta),
+    );
 
-    const canopyValues = readings
-      .map((reading) => reading.treeCanopyPercentage)
-      .filter((value): value is number => value !== null);
+    const avgTreeCanopy = average(
+      readings.map((reading) => reading.treeCanopyPercentage),
+    );
 
     const totalEnergyConsumption = readings.reduce(
       (sum, reading) =>
-        sum + (reading.energyConsumptionKwh ?? 0),
+        sum + (Number(reading.energyConsumptionKwh) || 0),
       0,
     );
 
-    const hottestReading = readings.reduce(
-      (hottest, reading) =>
-        reading.surfaceTemperature >
-        hottest.surfaceTemperature
-          ? reading
-          : hottest,
-      readings[0],
-    );
+    const hottestReading = readings.reduce((hottest, reading) => {
+      const currentTemp = Number(reading.surfaceTemperature) || 0;
+      const maxTemp = Number(hottest.surfaceTemperature) || 0;
+      return currentTemp > maxTemp ? reading : hottest;
+    }, readings[0]);
 
     const hottestBuilding =
       buildings.find(
-        (building) =>
-          building.id === hottestReading.buildingId,
+        (building) => building.id === hottestReading?.buildingId,
       ) ?? null;
 
     return {
-      avgSurfaceTemperature: avg(surfaceTemperatures),
-      avgAirTemperature: avg(airTemperatures),
-      avgTemperatureDelta: avg(temperatureDeltas),
-      avgCanopy: avg(canopyValues),
+      avgSurfaceTemp,
+      avgAirTemp,
+      avgTemperatureDelta,
+      avgTreeCanopy,
       totalEnergyConsumption,
       hottestBuilding,
     };
   }, [buildingsQuery.data, environmentQuery.data]);
 
-  if (
-    buildingsQuery.isLoading ||
-    environmentQuery.isLoading
-  ) {
+  if (buildingsQuery.isLoading || environmentQuery.isLoading) {
     return (
       <div className="rounded-xl border border-zinc-800 bg-zinc-900 p-6">
         <p className="text-sm text-zinc-400">
@@ -87,10 +97,7 @@ export const ClimateAnalytics: React.FC = () => {
     );
   }
 
-  if (
-    buildingsQuery.isError ||
-    environmentQuery.isError
-  ) {
+  if (buildingsQuery.isError || environmentQuery.isError) {
     return (
       <div className="rounded-xl border border-red-900 bg-red-950/30 p-6">
         <p className="text-sm text-red-400">
@@ -100,6 +107,15 @@ export const ClimateAnalytics: React.FC = () => {
     );
   }
 
+  const {
+    avgSurfaceTemp,
+    avgAirTemp,
+    avgTemperatureDelta,
+    avgTreeCanopy,
+    totalEnergyConsumption,
+    hottestBuilding,
+  } = climateStats;
+
   return (
     <section className="space-y-4">
       <div>
@@ -108,61 +124,94 @@ export const ClimateAnalytics: React.FC = () => {
         </h2>
 
         <p className="text-sm text-zinc-400">
-          Environmental conditions across monitored properties
+          {selectedBuildingId
+            ? 'Environmental conditions for the selected property'
+            : 'Environmental conditions across monitored properties'}
         </p>
       </div>
+
+      {!selectedBuildingId && (
+        <div className="rounded-lg border border-amber-900/50 bg-amber-950/20 px-4 py-3">
+          <p className="text-sm text-amber-400">
+            Select a building on the map to view property-specific
+            climate analytics.
+          </p>
+        </div>
+      )}
 
       <div className="grid grid-cols-2 gap-4 lg:grid-cols-4">
         <MetricCard
           label="Avg Surface Temp"
-          value={`${climateStats.avgSurfaceTemperature.toFixed(1)}°C`}
+          value={
+            avgSurfaceTemp !== null
+              ? `${avgSurfaceTemp.toFixed(1)}°C`
+              : '—'
+          }
         />
 
         <MetricCard
           label="Avg Air Temp"
-          value={`${climateStats.avgAirTemperature.toFixed(1)}°C`}
+          value={
+            avgAirTemp !== null
+              ? `${avgAirTemp.toFixed(1)}°C`
+              : '—'
+          }
         />
 
         <MetricCard
           label="Temperature Delta"
-          value={`${climateStats.avgTemperatureDelta.toFixed(1)}°C`}
+          value={
+            avgTemperatureDelta !== null
+              ? `${avgTemperatureDelta.toFixed(1)}°C`
+              : '—'
+          }
         />
 
         <MetricCard
           label="Avg Tree Canopy"
-          value={`${climateStats.avgCanopy.toFixed(1)}%`}
+          value={
+            avgTreeCanopy !== null
+              ? `${avgTreeCanopy.toFixed(1)}%`
+              : '—'
+          }
         />
       </div>
 
       <div className="grid grid-cols-1 gap-4 lg:grid-cols-2">
         <div className="rounded-xl border border-zinc-800 bg-zinc-900 p-5">
           <p className="text-sm text-zinc-400">
-            Total Energy Consumption
+            Energy Consumption
           </p>
 
           <p className="mt-2 text-2xl font-semibold text-white">
-            {climateStats.totalEnergyConsumption.toLocaleString()} kWh
+            {totalEnergyConsumption.toLocaleString('en-US', {
+              maximumFractionDigits: 2,
+            })}{' '}
+            kWh
           </p>
 
           <p className="mt-1 text-xs text-zinc-500">
-            Across all environmental readings
+            {selectedBuildingId
+              ? 'Across readings for selected building'
+              : 'Across all environmental readings'}
           </p>
         </div>
 
         <div className="rounded-xl border border-zinc-800 bg-zinc-900 p-5">
           <p className="text-sm text-zinc-400">
-            Hottest Building
+            {selectedBuildingId
+              ? 'Selected Building'
+              : 'Hottest Building'}
           </p>
 
           <p className="mt-2 text-xl font-semibold text-white">
-            {climateStats.hottestBuilding?.name ??
-              'No data'}
+            {hottestBuilding?.name ?? 'No data'}
           </p>
 
-          {climateStats.hottestBuilding && (
+          {hottestBuilding && (
             <p className="mt-1 text-sm text-zinc-500">
               Surface temperature:{' '}
-              {climateStats.hottestBuilding.surfaceTemperature}°C
+              {Number(hottestBuilding.surfaceTemperature).toFixed(1)}°C
             </p>
           )}
         </div>
@@ -176,10 +225,7 @@ interface MetricCardProps {
   value: string;
 }
 
-const MetricCard: React.FC<MetricCardProps> = ({
-  label,
-  value,
-}) => {
+const MetricCard: React.FC<MetricCardProps> = ({ label, value }) => {
   return (
     <div className="rounded-xl border border-zinc-800 bg-zinc-900 p-5">
       <p className="text-sm text-zinc-400">{label}</p>

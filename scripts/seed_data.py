@@ -142,7 +142,7 @@ for i, name in enumerate(BUILDING_NAMES, start=1):
         surf_temp = round(base_surface_temp + temp_wave, 1)
         air_temp = round(28.0 + temp_wave * 0.5 + random.uniform(-0.3, 0.3), 1)
         temp_delta = round(surf_temp - air_temp, 1)
-        hvac_cost = round((sq_ft * 0.008) * (1 + (temp_delta * 0.08)), 2)
+        hvac_cost = round((sq_ft * 0.008) * (1 + (temp_delta * 0.08)), 2) # replace with energy_consumption_kwh
         
         environmental_readings.append({
             "id": reading_uuid,

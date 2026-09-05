@@ -30,13 +30,13 @@ CREATE TABLE IF NOT EXISTS buildings (
 CREATE TABLE IF NOT EXISTS environmental_readings (
     id UUID PRIMARY KEY,
     building_id UUID NOT NULL REFERENCES buildings(id) ON DELETE CASCADE,
-    recorded_at TIMESTAMP NOT NULL,
-    surface_temperature NUMERIC(4, 1) NOT NULL,
-    air_temperature NUMERIC(4, 1),
-    temperature_delta NUMERIC(4, 1),
+    recorded_at TIMESTAMPTZ NOT NULL,
+    surface_temperature NUMERIC(6, 2) NOT NULL,
+    air_temperature NUMERIC(6, 2),
+    temperature_delta NUMERIC(6, 2),
     tree_canopy_percentage NUMERIC(5, 2),
-    hvac_cost NUMERIC(10, 2),
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+    energy_consumption_kwh NUMERIC,
+    created_at TIMESTAMPTZ DEFAULT CURRENT_TIMESTAMP
 );
 
 -- 3. Indexes for Spatial & Time-Series Performance
