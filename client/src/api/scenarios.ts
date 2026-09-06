@@ -12,10 +12,11 @@ const api = axios.create({
 export async function calculateScenarioAnalysis(
   request: ScenarioAnalysisRequest,
 ): Promise<ScenarioAnalysisResponse> {
-  const response = await api.post<ScenarioAnalysisResponse>(
-    '/api/v1/valuations/scenario',
-    request,
-  );
+  const response =
+    await api.post<ScenarioAnalysisResponse>(
+      '/api/v1/valuations/scenario',
+      request,
+    );
 
   return response.data;
 }

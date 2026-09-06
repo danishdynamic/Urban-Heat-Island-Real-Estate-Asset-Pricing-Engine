@@ -2,12 +2,14 @@ import {
   Injectable,
   BadGatewayException,
 } from '@nestjs/common';
-
 import { HttpService } from '@nestjs/axios';
 import { ConfigService } from '@nestjs/config';
+import { InjectRepository } from '@nestjs/typeorm';
+import { Repository } from 'typeorm';
 
 import { firstValueFrom } from 'rxjs';
 
+import { EnvironmentalReading } from '../environment/entities/environmental-reading.entity.js';
 import { CreateValuationDto } from './dto/create-valuation.dto.js';
 import { ScenarioAnalysisDto } from './dto/scenario-analysis.dto.js';
 
@@ -18,6 +20,9 @@ export class ValuationsService {
   constructor(
     private readonly httpService: HttpService,
     private readonly configService: ConfigService,
+
+    @InjectRepository(EnvironmentalReading)
+    private readonly environmentalRepository: Repository<EnvironmentalReading>,
   ) {
     this.quantServiceUrl =
       this.configService.get<string>(
@@ -25,7 +30,7 @@ export class ValuationsService {
       ) ?? 'http://localhost:8000';
   }
 
-    async calculate(request: CreateValuationDto) {
+  async calculate(request: CreateValuationDto) {
     console.log('Valuation request received:', request);
 
     try {
@@ -58,6 +63,34 @@ export class ValuationsService {
   async scenarioAnalysis(
     request: ScenarioAnalysisDto,
   ) {
+    const readings =
+      await this.environmentalRepository.find({
+        where: {
+          buildingId: request.buildingId,
+        },
+        order: {
+          recordedAt: 'ASC',
+        },
+      });
+
+    const energyValues = readings
+      .map((reading) =>
+        Number(reading.energyConsumptionKwh),
+      )
+      .filter(Number.isFinite);
+
+    if (!energyValues.length) {
+      throw new BadGatewayException(
+        'No energy consumption data available for building',
+      );
+    }
+
+    const averageDailyEnergyKwh =
+      energyValues.reduce(
+        (sum, value) => sum + value,
+        0,
+      ) / energyValues.length;
+
     try {
       const response =
         await firstValueFrom(
@@ -66,8 +99,8 @@ export class ValuationsService {
             {
               base_noi: request.baseNoi,
 
-              base_hvac_cost:
-                request.baseHvacCost,
+              average_daily_energy_kwh:
+                averageDailyEnergyKwh,
 
               discount_rate:
                 request.discountRate,

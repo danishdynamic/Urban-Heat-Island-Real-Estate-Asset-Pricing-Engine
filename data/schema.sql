@@ -35,7 +35,7 @@ CREATE TABLE IF NOT EXISTS environmental_readings (
     air_temperature NUMERIC(6, 2),
     temperature_delta NUMERIC(6, 2),
     tree_canopy_percentage NUMERIC(5, 2),
-    energy_consumption_kwh NUMERIC,
+    energy_consumption_kwh NUMERIC(12, 2),
     created_at TIMESTAMPTZ DEFAULT CURRENT_TIMESTAMP
 );
 

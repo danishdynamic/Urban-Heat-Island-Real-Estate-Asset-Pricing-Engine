@@ -27,7 +27,6 @@ export interface Scenario {
 export interface ScenarioAnalysisRequest {
   buildingId: string;
   baseNoi: number;
-  baseHvacCost: number;
   discountRate: number;
   years: number;
   scenarios: Scenario[];
@@ -35,8 +34,14 @@ export interface ScenarioAnalysisRequest {
 
 export interface ScenarioResult {
   name: string;
-  estimated_value?: number;
-  [key: string]: unknown;
+  temperature_delta: number;
+  additional_hvac_cost: number;
+  adjusted_noi: number;
+  estimated_value: number;
+  value_change: number;
+  value_change_percentage: number;
+  value_at_risk: number;
+  value_at_risk_percentage: number;
 }
 
 export interface ScenarioAnalysisResponse {

@@ -16,8 +16,8 @@ router = APIRouter(
 class RiskRequest(BaseModel):
     base_noi: float = Field(gt=0)
 
-    base_hvac_cost: float = Field(
-        ge=0,
+    average_daily_energy_kwh: float = Field(
+        gt=0,
     )
 
     discount_rate: float = Field(
@@ -40,10 +40,8 @@ def scenario_analysis(
     return {
         "scenarios": run_scenario_analysis(
             base_noi=request.base_noi,
-            base_hvac_cost=
-                request.base_hvac_cost,
-            discount_rate=
-                request.discount_rate,
+            average_daily_energy_kwh=request.average_daily_energy_kwh,
+            discount_rate=request.discount_rate,
             years=request.years,
             scenarios=request.scenarios,
         )

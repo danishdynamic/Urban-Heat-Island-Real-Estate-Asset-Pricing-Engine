@@ -142,7 +142,12 @@ for i, name in enumerate(BUILDING_NAMES, start=1):
         surf_temp = round(base_surface_temp + temp_wave, 1)
         air_temp = round(28.0 + temp_wave * 0.5 + random.uniform(-0.3, 0.3), 1)
         temp_delta = round(surf_temp - air_temp, 1)
-        hvac_cost = round((sq_ft * 0.008) * (1 + (temp_delta * 0.08)), 2) # replace with energy_consumption_kwh
+        
+        # Calculate daily synthetic energy consumption in kWh
+        # Base intensity: 0.15–0.35 kWh per sq ft per day, scaled by thermal heat delta
+        base_intensity = random.uniform(0.15, 0.35)
+        temp_factor = 1.0 + (max(0.0, temp_delta) * 0.05)
+        energy_kwh = round((sq_ft * base_intensity) * temp_factor, 2)
         
         environmental_readings.append({
             "id": reading_uuid,
@@ -152,7 +157,7 @@ for i, name in enumerate(BUILDING_NAMES, start=1):
             "air_temperature": air_temp,
             "temperature_delta": temp_delta,
             "tree_canopy_percentage": tree_canopy,
-            "hvac_cost": hvac_cost
+            "energy_consumption_kwh": energy_kwh
         })
 
 # --- Write `data/seeds/buildings.sql` ---
@@ -199,7 +204,7 @@ with open("data/seeds/environmental_readings.sql", "w", encoding="utf-8") as f:
     f.write(
         "INSERT INTO environmental_readings "
         "(id, building_id, recorded_at, surface_temperature, "
-        "air_temperature, temperature_delta, tree_canopy_percentage, hvac_cost) "
+        "air_temperature, temperature_delta, tree_canopy_percentage, energy_consumption_kwh) "
         "VALUES\n"
     )
     
@@ -213,7 +218,7 @@ with open("data/seeds/environmental_readings.sql", "w", encoding="utf-8") as f:
             f"{r['air_temperature']}, "
             f"{r['temperature_delta']}, "
             f"{r['tree_canopy_percentage']}, "
-            f"{r['hvac_cost']})"
+            f"{r['energy_consumption_kwh']})"
         )
         rows.append(row)
     

@@ -3,32 +3,20 @@ import React, { useState } from 'react';
 import { useEnvironmentReadings } from '../../hooks/useEnvironment';
 import { useScenarioAnalysis } from '../../hooks/useValuation';
 import type { Building } from '../../types/building';
+import type { ScenarioResult } from '../../types/valuation';
 
 interface ScenarioAnalysisProps {
   building: Building | null;
 }
 
-interface ScenarioItem {
-  name: string;
-  temperature_delta: number;
-  estimated_value?: number;
-  adjusted_noi?: number;
-  cap_rate?: number;
-}
-
 const formatCurrency = (value: number) =>
-  new Intl.NumberFormat('en-US', {
+  new Intl.NumberFormat('en-DE', {
     style: 'currency',
     currency: 'EUR',
     maximumFractionDigits: 0,
   }).format(value);
 
-const formatPercent = (value: number) =>
-  new Intl.NumberFormat('en-US', {
-    style: 'percent',
-    minimumFractionDigits: 2,
-    maximumFractionDigits: 2,
-  }).format(value);
+const formatPercent = (value: number) => `${(value * 100).toFixed(2)}%`;
 
 export const ScenarioAnalysis: React.FC<ScenarioAnalysisProps> = ({
   building,
@@ -80,7 +68,6 @@ export const ScenarioAnalysis: React.FC<ScenarioAnalysisProps> = ({
     scenarioMutation.mutate({
       buildingId: building.id,
       baseNoi,
-      baseHvacCost: 0,
       discountRate,
       years,
       scenarios,
@@ -169,79 +156,97 @@ export const ScenarioAnalysis: React.FC<ScenarioAnalysisProps> = ({
         </p>
       )}
 
-      {scenarioMutation.data && (
-        <ScenarioResults rawData={scenarioMutation.data} />
-      )}
-    </div>
-  );
-};
-
-interface ScenarioResultsProps {
-  rawData: unknown;
-}
-
-const ScenarioResults: React.FC<ScenarioResultsProps> = ({ rawData }) => {
-  // Extract scenarios array regardless of response envelope wrapper
-  const items: ScenarioItem[] = Array.isArray(rawData)
-    ? rawData
-    : Array.isArray((rawData as { data?: unknown })?.data)
-    ? (rawData as { data: ScenarioItem[] }).data
-    : Array.isArray((rawData as { scenarios?: unknown })?.scenarios)
-    ? (rawData as { scenarios: ScenarioItem[] }).scenarios
-    : [];
-
-  if (!items.length) {
-    return (
-      <div className="mt-6 rounded-lg bg-zinc-950 p-4 text-sm text-zinc-400">
-        No scenario items found in response payload.
-      </div>
-    );
-  }
-
-  return (
-    <div className="mt-6 space-y-3">
-      <h4 className="text-sm font-semibold text-zinc-200">
-        Scenario Valuation Results
-      </h4>
-
-      <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
-        {items.map((scenario, index) => (
-          <div
-            key={`${scenario.name}-${index}`}
-            className="flex flex-col justify-between rounded-xl border border-zinc-800 bg-zinc-950 p-4 space-y-4"
-          >
-            <div>
-              <p className="text-sm font-medium text-zinc-300">
-                {scenario.name ?? `Scenario ${index + 1}`}
-              </p>
-              <p className="mt-1 text-2xl font-bold text-white">
-                {typeof scenario.estimated_value === 'number'
-                  ? formatCurrency(scenario.estimated_value)
-                  : '—'}
+      {scenarioMutation.data?.scenarios && (
+        <>
+          {/* Financial Impact Summary Cards */}
+          <div className="mt-6 grid gap-4 md:grid-cols-3">
+            <div className="rounded-lg border border-zinc-800 bg-zinc-950 p-4">
+              <p className="text-sm text-zinc-400">Baseline Value</p>
+              <p className="mt-1 text-2xl font-semibold text-white">
+                {formatCurrency(
+                  scenarioMutation.data.scenarios[0]?.estimated_value ?? 0,
+                )}
               </p>
             </div>
 
-            <div className="grid grid-cols-2 gap-2 border-t border-zinc-800/60 pt-3 text-xs">
-              <div>
-                <span className="text-zinc-500 block">Adjusted NOI</span>
-                <span className="font-semibold text-zinc-300">
-                  {typeof scenario.adjusted_noi === 'number'
-                    ? formatCurrency(scenario.adjusted_noi)
-                    : '—'}
-                </span>
-              </div>
-              <div>
-                <span className="text-zinc-500 block">Cap Rate</span>
-                <span className="font-semibold text-zinc-300">
-                  {typeof scenario.cap_rate === 'number'
-                    ? formatPercent(scenario.cap_rate)
-                    : '—'}
-                </span>
-              </div>
+            <div className="rounded-lg border border-zinc-800 bg-zinc-950 p-4">
+              <p className="text-sm text-zinc-400">Severe Heat Value</p>
+              <p className="mt-1 text-2xl font-semibold text-white">
+                {formatCurrency(
+                  scenarioMutation.data.scenarios[
+                    scenarioMutation.data.scenarios.length - 1
+                  ]?.estimated_value ?? 0,
+                )}
+              </p>
+            </div>
+
+            <div className="rounded-lg border border-zinc-800 bg-zinc-950 p-4">
+              <p className="text-sm text-zinc-400">Climate Value at Risk</p>
+              <p className="mt-1 text-2xl font-semibold text-red-400">
+                {formatCurrency(
+                  scenarioMutation.data.scenarios[
+                    scenarioMutation.data.scenarios.length - 1
+                  ]?.value_at_risk ?? 0,
+                )}
+              </p>
             </div>
           </div>
-        ))}
-      </div>
+
+          {/* Detailed Valuation Table */}
+          <div className="mt-6 overflow-x-auto">
+            <table className="w-full text-sm text-zinc-300">
+              <thead>
+                <tr className="border-b border-zinc-800 text-left text-zinc-400">
+                  <th className="px-4 py-3">Scenario</th>
+                  <th className="px-4 py-3">Temp Δ</th>
+                  <th className="px-4 py-3">Additional HVAC</th>
+                  <th className="px-4 py-3">Adjusted NOI</th>
+                  <th className="px-4 py-3">Property Value</th>
+                  <th className="px-4 py-3">Value at Risk</th>
+                </tr>
+              </thead>
+
+              <tbody>
+                {scenarioMutation.data.scenarios.map(
+                  (scenario: ScenarioResult) => (
+                    <tr
+                      key={scenario.name}
+                      className="border-b border-zinc-800/60 hover:bg-zinc-950/50"
+                    >
+                      <td className="px-4 py-3 font-medium text-white">
+                        {scenario.name}
+                      </td>
+
+                      <td className="px-4 py-3 text-cyan-400">
+                        +{scenario.temperature_delta.toFixed(1)}°C
+                      </td>
+
+                      <td className="px-4 py-3">
+                        {formatCurrency(scenario.additional_hvac_cost)}
+                      </td>
+
+                      <td className="px-4 py-3">
+                        {formatCurrency(scenario.adjusted_noi)}
+                      </td>
+
+                      <td className="px-4 py-3 font-semibold text-white">
+                        {formatCurrency(scenario.estimated_value)}
+                      </td>
+
+                      <td className="px-4 py-3 text-red-400">
+                        {formatCurrency(scenario.value_at_risk)}
+                        <span className="ml-2 text-xs text-zinc-500">
+                          ({formatPercent(scenario.value_at_risk_percentage)})
+                        </span>
+                      </td>
+                    </tr>
+                  ),
+                )}
+              </tbody>
+            </table>
+          </div>
+        </>
+      )}
     </div>
   );
 };
